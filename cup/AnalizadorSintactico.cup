@@ -15,7 +15,7 @@ monedas;
 terminal llave_a, llave_c, coma, punto_coma, parenta, parentc;
 
 non terminal S, DIMENSION, DIRECTIVAS, BLOQUE, INICIO, FINAL, MONEDAS, MONEDA, ENEMIGOS, ENEMIGO,
-	DEF_MONEDAS, DEF_ENEMIGOS, LOC_MONEDAS, LOC_ENEMIGOS, LOC_MONEDA, LOC_ENEMIGO, LOCALIZACION;
+	DEF_MONEDAS, DEF_ENEMIGOS, LOCALIZACIONES, LOCALIZACION;
 non terminal Coordenada COORD;
 
 
@@ -37,8 +37,8 @@ DIMENSION ::= alto numero ancho numero
 
 DEF_MONEDAS ::= monedas llave_a MONEDAS llave_c ;
 
-MONEDAS ::= MONEDA punto_coma MONEDAS 
-	| MONEDA punto_coma;
+MONEDAS ::= MONEDA punto_coma
+	| MONEDA punto_coma MONEDAS;
 
 MONEDA ::= ident numero;
 
@@ -49,12 +49,10 @@ ENEMIGOS ::= ENEMIGO punto_coma ENEMIGOS
 
 ENEMIGO ::= ident damage;
 
-/*BLOQUE ::= llave_a INICIO FINAL LOC_MONEDAS LOC_ENEMIGOS llave_c
-	| llave_a INICIO FINAL  LOC_MONEDAS llave_c
-	| llave_a INICIO FINAL LOC_ENEMIGOS llave_c
-	| llave_a INICIO FINAL llave_c ;*/
+BLOQUE ::= llave_a INICIO FINAL LOCALIZACIONES llave_c
+	| llave_a INICIO FINAL llave_c ;
 
-BLOQUE ::= llave_a INICIO FINAL LOCALIZACION llave_c;
+//BLOQUE ::= llave_a INICIO FINAL LOCALIZACIONES llave_c;
 
 //INICIO ::= inicio COORD:ca punto_coma;
 INICIO ::= inicio COORD punto_coma;
@@ -62,15 +60,17 @@ INICIO ::= inicio COORD punto_coma;
 //FINAL ::= final COORD:ca punto_coma
 FINAL ::= end COORD punto_coma;
 
-/*LOC_MONEDAS ::= LOC_MONEDA punto_coma LOC_MONEDAS
-	| LOC_MONEDA punto_coma;*/
+LOCALIZACIONES ::= LOCALIZACION  LOCALIZACIONES
+	| LOCALIZACION;
 
-LOCALIZACION ::=  ident COORD punto_coma {:System.out.println("Loc leida");:};
+LOCALIZACION ::= ident COORD punto_coma;
 
-/*LOC_ENEMIGOS ::= LOC_ENEMIGO punto_coma
-	| LOC_ENEMIGO punto_coma LOC_ENEMIGOS;*/
+/*LOCALIZACION ::=  ident COORD punto_coma {:System.out.println("Loc leida");:};
 
-//LOC_ENEMIGO ::= ident COORD punto_coma;
+LOC_ENEMIGOS ::= LOC_ENEMIGO punto_coma
+	| LOC_ENEMIGO punto_coma LOC_ENEMIGOS;
+
+LOC_ENEMIGO ::= enemigo ident COORD punto_coma;*/
 
 COORD ::= parenta numero coma numero parentc {:System.out.println("Coordenada leida");:};
 /* 
