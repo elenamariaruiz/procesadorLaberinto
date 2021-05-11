@@ -53,7 +53,7 @@ private Symbol symbol(int type,Object value){
 nl  = \n | \r | \r\n
 blanco = " "
 tab =  \t
-ident = ([:jletterdigit:] | \- | \_ )+
+ident = [:jletter:]([:jletterdigit:] | \- | \_ )+
 damage = (\-[:digit:]*)
 end= "final"
 

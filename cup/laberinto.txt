@@ -1,4 +1,4 @@
-laberinto1
+Laberinto1
 alto 3 ancho 3
 use LAB1 time 200
 monedas {moneda1 20; moneda2 10;}
