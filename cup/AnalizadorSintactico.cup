@@ -15,7 +15,7 @@ monedas;
 terminal llave_a, llave_c, coma, punto_coma, parenta, parentc;
 
 non terminal S, DIMENSION, DIRECTIVAS, BLOQUE, INICIO, FINAL, MONEDAS, MONEDA, ENEMIGOS, ENEMIGO,
-	DEF_MONEDAS, DEF_ENEMIGOS, LOCALIZACIONES, LOCALIZACION;
+	DEF_MONEDAS, DEF_ENEMIGOS, LOCALIZACIONES, LOCALIZACION, COORDENADAS;
 non terminal Coordenada COORD;
 
 
@@ -63,7 +63,9 @@ FINAL ::= end COORD punto_coma;
 LOCALIZACIONES ::= LOCALIZACION  LOCALIZACIONES
 	| LOCALIZACION;
 
-LOCALIZACION ::= ident COORD punto_coma;
+LOCALIZACION ::= ident COORDENADAS punto_coma;
+
+COORDENADAS ::= COORD | COORD COORDENADAS ;
 
 /*LOCALIZACION ::=  ident COORD punto_coma {:System.out.println("Loc leida");:};
 
