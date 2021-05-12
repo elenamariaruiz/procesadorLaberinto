@@ -55,6 +55,7 @@ blanco = " "
 tab =  \t
 ident = [:jletter:]([:jletterdigit:] | \- | \_ )+
 damage = (\-[:digit:]*)
+utemp = "s" | "m" | "h"
 end= "final"
 
 %%
@@ -110,6 +111,8 @@ return symbol(sym.damage, new Integer(yytext()));}
 {ident} {System.out.println("Token ident <"+yytext()+"> encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
 return symbol(sym.ident, new String(yytext()));}
 
+{utemp} {System.out.println("Token unidad de tiempo <"+yytext()+"> encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
+return symbol(sym.utemp, new String(yytext()));}
   
 {nl}		{}
 	

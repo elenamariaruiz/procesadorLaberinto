@@ -341,12 +341,12 @@ class analex implements java_cup.runtime.Scanner {
 
   private static final String ZZ_ACTION_PACKED_0 =
     "\2\0\1\1\2\2\1\1\1\3\1\4\1\5\1\6"+
-    "\1\7\1\10\7\1\1\11\1\12\20\13\1\14\1\15"+
-    "\5\13\1\16\1\17\1\13\1\20\3\13\1\21\2\13"+
-    "\1\22\1\23";
+    "\1\7\1\10\3\1\1\11\1\1\1\11\2\1\1\12"+
+    "\1\13\20\14\1\15\1\16\5\14\1\17\1\20\1\14"+
+    "\1\21\3\14\1\22\2\14\1\23\1\24";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[56];
+    int [] result = new int[57];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -372,15 +372,16 @@ class analex implements java_cup.runtime.Scanner {
 
   private static final String ZZ_ROWMAP_PACKED_0 =
     "\0\0\0\40\0\40\0\40\0\100\0\140\0\40\0\40"+
-    "\0\40\0\200\0\240\0\40\0\300\0\340\0\u0100\0\u0120"+
-    "\0\u0140\0\u0160\0\u0180\0\40\0\40\0\140\0\u01a0\0\u01c0"+
-    "\0\u01e0\0\u0200\0\u0220\0\u0240\0\u0260\0\u0280\0\u02a0\0\u02c0"+
-    "\0\u02e0\0\u0300\0\u0320\0\u0340\0\u0360\0\140\0\140\0\u0380"+
-    "\0\u03a0\0\u03c0\0\u03e0\0\u0400\0\140\0\140\0\u0420\0\140"+
-    "\0\u0440\0\u0460\0\u0480\0\140\0\u04a0\0\u04c0\0\140\0\140";
+    "\0\40\0\200\0\240\0\40\0\300\0\340\0\u0100\0\140"+
+    "\0\u0120\0\u0140\0\u0160\0\u0180\0\40\0\40\0\140\0\u01a0"+
+    "\0\u01c0\0\u01e0\0\u0200\0\u0220\0\u0240\0\u0260\0\u0280\0\u02a0"+
+    "\0\u02c0\0\u02e0\0\u0300\0\u0320\0\u0340\0\u0360\0\140\0\140"+
+    "\0\u0380\0\u03a0\0\u03c0\0\u03e0\0\u0400\0\140\0\140\0\u0420"+
+    "\0\140\0\u0440\0\u0460\0\u0480\0\140\0\u04a0\0\u04c0\0\140"+
+    "\0\140";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[56];
+    int [] result = new int[57];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -405,51 +406,51 @@ class analex implements java_cup.runtime.Scanner {
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\3\2\4\1\0\1\5\1\3\1\6\1\7\1\10"+
     "\1\11\1\12\1\3\1\13\1\14\1\15\2\6\1\16"+
-    "\1\17\2\6\1\20\1\6\1\21\3\6\1\22\1\23"+
-    "\1\24\1\25\43\0\1\4\35\0\1\26\5\0\1\26"+
-    "\3\0\3\26\1\0\17\26\2\0\1\26\13\0\2\12"+
-    "\36\0\2\13\23\0\1\26\5\0\1\26\3\0\3\26"+
-    "\1\0\10\26\1\27\1\26\1\30\4\26\2\0\2\26"+
-    "\5\0\1\26\3\0\3\26\1\0\12\26\1\31\4\26"+
-    "\2\0\2\26\5\0\1\26\3\0\3\26\1\0\7\26"+
-    "\1\32\7\26\2\0\2\26\5\0\1\26\3\0\3\26"+
-    "\1\0\12\26\1\33\4\26\2\0\2\26\5\0\1\26"+
-    "\3\0\3\26\1\0\13\26\1\34\3\26\2\0\2\26"+
-    "\5\0\1\26\3\0\3\26\1\0\7\26\1\35\7\26"+
-    "\2\0\2\26\5\0\1\26\3\0\3\26\1\0\14\26"+
-    "\1\36\2\26\2\0\2\26\5\0\1\26\3\0\3\26"+
-    "\1\0\15\26\1\37\1\26\2\0\2\26\5\0\1\26"+
-    "\3\0\3\26\1\0\1\26\1\40\15\26\2\0\2\26"+
-    "\5\0\1\26\3\0\3\26\1\0\3\26\1\41\13\26"+
-    "\2\0\2\26\5\0\1\26\3\0\3\26\1\0\12\26"+
-    "\1\42\4\26\2\0\2\26\5\0\1\26\3\0\3\26"+
-    "\1\0\7\26\1\43\7\26\2\0\2\26\5\0\1\26"+
-    "\3\0\3\26\1\0\12\26\1\44\4\26\2\0\2\26"+
-    "\5\0\1\26\3\0\3\26\1\0\11\26\1\45\5\26"+
-    "\2\0\2\26\5\0\1\26\3\0\3\26\1\0\3\26"+
-    "\1\46\13\26\2\0\2\26\5\0\1\26\3\0\3\26"+
-    "\1\0\13\26\1\47\3\26\2\0\2\26\5\0\1\26"+
-    "\3\0\3\26\1\0\6\26\1\50\10\26\2\0\2\26"+
-    "\5\0\1\26\3\0\3\26\1\0\11\26\1\51\5\26"+
-    "\2\0\2\26\5\0\1\26\3\0\3\26\1\0\1\52"+
-    "\16\26\2\0\2\26\5\0\1\26\3\0\3\26\1\0"+
-    "\1\26\1\53\15\26\2\0\2\26\5\0\1\26\3\0"+
-    "\3\26\1\0\3\26\1\54\13\26\2\0\2\26\5\0"+
-    "\1\26\3\0\3\26\1\0\3\26\1\55\13\26\2\0"+
-    "\2\26\5\0\1\26\3\0\3\26\1\0\13\26\1\56"+
-    "\3\26\2\0\2\26\5\0\1\26\3\0\3\26\1\0"+
-    "\7\26\1\57\7\26\2\0\2\26\5\0\1\26\3\0"+
-    "\3\26\1\0\10\26\1\60\6\26\2\0\2\26\5\0"+
-    "\1\26\3\0\3\26\1\0\7\26\1\61\7\26\2\0"+
-    "\2\26\5\0\1\26\3\0\3\26\1\0\2\26\1\62"+
-    "\14\26\2\0\2\26\5\0\1\26\3\0\3\26\1\0"+
-    "\5\26\1\63\11\26\2\0\2\26\5\0\1\26\3\0"+
-    "\3\26\1\0\13\26\1\64\3\26\2\0\2\26\5\0"+
-    "\1\26\3\0\3\26\1\0\1\65\16\26\2\0\2\26"+
-    "\5\0\1\26\3\0\3\26\1\0\13\26\1\66\3\26"+
-    "\2\0\2\26\5\0\1\26\3\0\3\26\1\0\14\26"+
-    "\1\67\2\26\2\0\2\26\5\0\1\26\3\0\3\26"+
-    "\1\0\14\26\1\70\2\26\2\0\1\26";
+    "\1\17\1\6\1\20\1\21\1\6\1\22\2\6\1\20"+
+    "\1\23\1\24\1\25\1\26\43\0\1\4\35\0\1\27"+
+    "\5\0\1\27\3\0\3\27\1\0\17\27\2\0\1\27"+
+    "\13\0\2\12\36\0\2\13\23\0\1\27\5\0\1\27"+
+    "\3\0\3\27\1\0\10\27\1\30\1\27\1\31\4\27"+
+    "\2\0\2\27\5\0\1\27\3\0\3\27\1\0\12\27"+
+    "\1\32\4\27\2\0\2\27\5\0\1\27\3\0\3\27"+
+    "\1\0\7\27\1\33\7\27\2\0\2\27\5\0\1\27"+
+    "\3\0\3\27\1\0\12\27\1\34\4\27\2\0\2\27"+
+    "\5\0\1\27\3\0\3\27\1\0\13\27\1\35\3\27"+
+    "\2\0\2\27\5\0\1\27\3\0\3\27\1\0\7\27"+
+    "\1\36\7\27\2\0\2\27\5\0\1\27\3\0\3\27"+
+    "\1\0\14\27\1\37\2\27\2\0\2\27\5\0\1\27"+
+    "\3\0\3\27\1\0\15\27\1\40\1\27\2\0\2\27"+
+    "\5\0\1\27\3\0\3\27\1\0\1\27\1\41\15\27"+
+    "\2\0\2\27\5\0\1\27\3\0\3\27\1\0\3\27"+
+    "\1\42\13\27\2\0\2\27\5\0\1\27\3\0\3\27"+
+    "\1\0\12\27\1\43\4\27\2\0\2\27\5\0\1\27"+
+    "\3\0\3\27\1\0\7\27\1\44\7\27\2\0\2\27"+
+    "\5\0\1\27\3\0\3\27\1\0\12\27\1\45\4\27"+
+    "\2\0\2\27\5\0\1\27\3\0\3\27\1\0\11\27"+
+    "\1\46\5\27\2\0\2\27\5\0\1\27\3\0\3\27"+
+    "\1\0\3\27\1\47\13\27\2\0\2\27\5\0\1\27"+
+    "\3\0\3\27\1\0\13\27\1\50\3\27\2\0\2\27"+
+    "\5\0\1\27\3\0\3\27\1\0\6\27\1\51\10\27"+
+    "\2\0\2\27\5\0\1\27\3\0\3\27\1\0\11\27"+
+    "\1\52\5\27\2\0\2\27\5\0\1\27\3\0\3\27"+
+    "\1\0\1\53\16\27\2\0\2\27\5\0\1\27\3\0"+
+    "\3\27\1\0\1\27\1\54\15\27\2\0\2\27\5\0"+
+    "\1\27\3\0\3\27\1\0\3\27\1\55\13\27\2\0"+
+    "\2\27\5\0\1\27\3\0\3\27\1\0\3\27\1\56"+
+    "\13\27\2\0\2\27\5\0\1\27\3\0\3\27\1\0"+
+    "\13\27\1\57\3\27\2\0\2\27\5\0\1\27\3\0"+
+    "\3\27\1\0\7\27\1\60\7\27\2\0\2\27\5\0"+
+    "\1\27\3\0\3\27\1\0\10\27\1\61\6\27\2\0"+
+    "\2\27\5\0\1\27\3\0\3\27\1\0\7\27\1\62"+
+    "\7\27\2\0\2\27\5\0\1\27\3\0\3\27\1\0"+
+    "\2\27\1\63\14\27\2\0\2\27\5\0\1\27\3\0"+
+    "\3\27\1\0\5\27\1\64\11\27\2\0\2\27\5\0"+
+    "\1\27\3\0\3\27\1\0\13\27\1\65\3\27\2\0"+
+    "\2\27\5\0\1\27\3\0\3\27\1\0\1\66\16\27"+
+    "\2\0\2\27\5\0\1\27\3\0\3\27\1\0\13\27"+
+    "\1\67\3\27\2\0\2\27\5\0\1\27\3\0\3\27"+
+    "\1\0\14\27\1\70\2\27\2\0\2\27\5\0\1\27"+
+    "\3\0\3\27\1\0\14\27\1\71\2\27\2\0\1\27";
 
   private static int [] zzUnpackTrans() {
     int [] result = new int[1248];
@@ -495,11 +496,11 @@ class analex implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\10\2\11\2\1\3\11\2\1\1\11\7\1"+
+    "\1\0\1\10\2\11\2\1\3\11\2\1\1\11\10\1"+
     "\2\11\43\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[56];
+    int [] result = new int[57];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -1004,114 +1005,120 @@ private Symbol symbol(int type,Object value){
             { System.out.println("Token No Valido <" +yytext()+ ">linea: " + (yyline+1) + " columna: " + (yycolumn+1));
             }
             // fall through
-          case 20: break;
+          case 21: break;
           case 2:
             { 
             }
             // fall through
-          case 21: break;
+          case 22: break;
           case 3:
             { System.out.println("Parentesis abierto encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1));
     /*yybegin(COORDENADA)*/ return symbol(sym.parenta);
             }
             // fall through
-          case 22: break;
+          case 23: break;
           case 4:
             { System.out.println("Parentesis cerrado encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
   return symbol(sym.parentc);
             }
             // fall through
-          case 23: break;
+          case 24: break;
           case 5:
             { System.out.println("Token coma encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
   return symbol(sym.coma);
             }
             // fall through
-          case 24: break;
+          case 25: break;
           case 6:
             { System.out.println("Token daño <"+yytext()+"> encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
 return symbol(sym.damage, new Integer(yytext()));
             }
             // fall through
-          case 25: break;
+          case 26: break;
           case 7:
             { System.out.println("Token numero <"+yytext()+"> encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
   return symbol(sym.numero, new Integer(yytext()));
             }
             // fall through
-          case 26: break;
+          case 27: break;
           case 8:
             { System.out.println("Token punto_coma encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
   return symbol(sym.punto_coma);
             }
             // fall through
-          case 27: break;
+          case 28: break;
           case 9:
+            { System.out.println("Token unidad de tiempo <"+yytext()+"> encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
+return symbol(sym.utemp, new String(yytext()));
+            }
+            // fall through
+          case 29: break;
+          case 10:
             { System.out.println("Token llave_a encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
   return symbol(sym.llave_a);
             }
             // fall through
-          case 28: break;
-          case 10:
+          case 30: break;
+          case 11:
             { System.out.println("Token llave_c encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
   return symbol(sym.llave_c);
             }
             // fall through
-          case 29: break;
-          case 11:
+          case 31: break;
+          case 12:
             { System.out.println("Token ident <"+yytext()+"> encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
 return symbol(sym.ident, new String(yytext()));
             }
             // fall through
-          case 30: break;
-          case 12:
+          case 32: break;
+          case 13:
             { System.out.println("Token use encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
   return symbol(sym.use);
             }
             // fall through
-          case 31: break;
-          case 13:
+          case 33: break;
+          case 14:
             { System.out.println("Token alto encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
   return symbol(sym.alto);
             }
             // fall through
-          case 32: break;
-          case 14:
+          case 34: break;
+          case 15:
             { System.out.println("Token time encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
   return symbol(sym.time);
             }
             // fall through
-          case 33: break;
-          case 15:
+          case 35: break;
+          case 16:
             { System.out.println("Token ancho encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
   return symbol(sym.ancho);
             }
             // fall through
-          case 34: break;
-          case 16:
+          case 36: break;
+          case 17:
             { System.out.println("Token final encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
   return symbol(sym.end);
             }
             // fall through
-          case 35: break;
-          case 17:
+          case 37: break;
+          case 18:
             { System.out.println("Token inicio encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
   return symbol(sym.inicio);
             }
             // fall through
-          case 36: break;
-          case 18:
+          case 38: break;
+          case 19:
             { System.out.println("Token monedas encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
   return symbol(sym.monedas);
             }
             // fall through
-          case 37: break;
-          case 19:
+          case 39: break;
+          case 20:
             { System.out.println("Token enemigos encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
   return symbol(sym.enemigos);
             }
             // fall through
-          case 38: break;
+          case 40: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

@@ -7,14 +7,15 @@
 public class sym {
   /* terminals */
   public static final int ancho = 9;
+  public static final int utemp = 13;
   public static final int end = 11;
-  public static final int coma = 15;
-  public static final int parentc = 18;
+  public static final int coma = 16;
+  public static final int parentc = 19;
   public static final int numero = 2;
-  public static final int parenta = 17;
-  public static final int llave_c = 14;
+  public static final int parenta = 18;
+  public static final int llave_c = 15;
   public static final int alto = 8;
-  public static final int llave_a = 13;
+  public static final int llave_a = 14;
   public static final int time = 7;
   public static final int inicio = 10;
   public static final int ident = 4;
@@ -24,7 +25,7 @@ public class sym {
   public static final int damage = 3;
   public static final int monedas = 12;
   public static final int enemigos = 5;
-  public static final int punto_coma = 16;
+  public static final int punto_coma = 17;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
@@ -39,6 +40,7 @@ public class sym {
   "inicio",
   "end",
   "monedas",
+  "utemp",
   "llave_a",
   "llave_c",
   "coma",
