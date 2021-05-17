@@ -114,6 +114,9 @@ public class LaberintoParser extends Parser {
 		public Def_monedasContext def_monedas() {
 			return getRuleContext(Def_monedasContext.class,0);
 		}
+		public Def_enemigosContext def_enemigos() {
+			return getRuleContext(Def_enemigosContext.class,0);
+		}
 		public InicioContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -143,7 +146,17 @@ public class LaberintoParser extends Parser {
 				}
 			}
 
-			setState(38);
+			setState(39);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==ENEMIGOS) {
+				{
+				setState(38);
+				def_enemigos();
+				}
+			}
+
+			setState(41);
 			bloque();
 			}
 		}
@@ -176,15 +189,15 @@ public class LaberintoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(40);
-			match(USE);
-			setState(41);
-			match(IDENT);
-			setState(42);
-			match(TIME);
 			setState(43);
-			match(NUMERO);
+			match(USE);
 			setState(44);
+			match(IDENT);
+			setState(45);
+			match(TIME);
+			setState(46);
+			match(NUMERO);
+			setState(47);
 			match(UTEMP);
 			}
 		}
@@ -200,11 +213,11 @@ public class LaberintoParser extends Parser {
 	}
 
 	public static class DimensionContext extends ParserRuleContext {
-		public TerminalNode ALTO() { return getToken(LaberintoParser.ALTO, 0); }
 		public List<TerminalNode> NUMERO() { return getTokens(LaberintoParser.NUMERO); }
 		public TerminalNode NUMERO(int i) {
 			return getToken(LaberintoParser.NUMERO, i);
 		}
+		public TerminalNode ALTO() { return getToken(LaberintoParser.ALTO, 0); }
 		public TerminalNode ANCHO() { return getToken(LaberintoParser.ANCHO, 0); }
 		public DimensionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -215,16 +228,33 @@ public class LaberintoParser extends Parser {
 	public final DimensionContext dimension() throws RecognitionException {
 		DimensionContext _localctx = new DimensionContext(_ctx, getState());
 		enterRule(_localctx, 4, RULE_dimension);
+		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(46);
-			match(ALTO);
-			setState(47);
+			setState(50);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==ALTO) {
+				{
+				setState(49);
+				match(ALTO);
+				}
+			}
+
+			setState(52);
 			match(NUMERO);
-			setState(48);
-			match(ANCHO);
-			setState(49);
+			setState(54);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==ANCHO) {
+				{
+				setState(53);
+				match(ANCHO);
+				}
+			}
+
+			setState(56);
 			match(NUMERO);
 			}
 		}
@@ -258,13 +288,13 @@ public class LaberintoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(51);
+			setState(58);
 			match(MONEDAS);
-			setState(52);
+			setState(59);
 			match(LLAVE_A);
-			setState(53);
+			setState(60);
 			monedas();
-			setState(54);
+			setState(61);
 			match(LLAVE_C);
 			}
 		}
@@ -303,19 +333,19 @@ public class LaberintoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(59); 
+			setState(66); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(56);
+				setState(63);
 				moneda();
-				setState(57);
+				setState(64);
 				match(PUNTO_COMA);
 				}
 				}
-				setState(61); 
+				setState(68); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==IDENT );
@@ -347,9 +377,9 @@ public class LaberintoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(63);
+			setState(70);
 			match(IDENT);
-			setState(64);
+			setState(71);
 			match(NUMERO);
 			}
 		}
@@ -367,8 +397,8 @@ public class LaberintoParser extends Parser {
 	public static class Def_enemigosContext extends ParserRuleContext {
 		public TerminalNode ENEMIGOS() { return getToken(LaberintoParser.ENEMIGOS, 0); }
 		public TerminalNode LLAVE_A() { return getToken(LaberintoParser.LLAVE_A, 0); }
-		public EnemigoContext enemigo() {
-			return getRuleContext(EnemigoContext.class,0);
+		public EnemigosContext enemigos() {
+			return getRuleContext(EnemigosContext.class,0);
 		}
 		public TerminalNode LLAVE_C() { return getToken(LaberintoParser.LLAVE_C, 0); }
 		public Def_enemigosContext(ParserRuleContext parent, int invokingState) {
@@ -383,13 +413,13 @@ public class LaberintoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(66);
+			setState(73);
 			match(ENEMIGOS);
-			setState(67);
+			setState(74);
 			match(LLAVE_A);
-			setState(68);
-			enemigo();
-			setState(69);
+			setState(75);
+			enemigos();
+			setState(76);
 			match(LLAVE_C);
 			}
 		}
@@ -428,19 +458,19 @@ public class LaberintoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(74); 
+			setState(81); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(71);
+				setState(78);
 				enemigo();
-				setState(72);
+				setState(79);
 				match(PUNTO_COMA);
 				}
 				}
-				setState(76); 
+				setState(83); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==IDENT );
@@ -472,9 +502,9 @@ public class LaberintoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(78);
+			setState(85);
 			match(IDENT);
-			setState(79);
+			setState(86);
 			match(DAMAGE);
 			}
 		}
@@ -514,23 +544,23 @@ public class LaberintoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(81);
+			setState(88);
 			match(LLAVE_A);
-			setState(82);
+			setState(89);
 			start();
-			setState(83);
+			setState(90);
 			end();
-			setState(85);
+			setState(92);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==IDENT) {
 				{
-				setState(84);
+				setState(91);
 				localizaciones();
 				}
 			}
 
-			setState(87);
+			setState(94);
 			match(LLAVE_C);
 			}
 		}
@@ -563,11 +593,11 @@ public class LaberintoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(89);
+			setState(96);
 			match(INICIO);
-			setState(90);
+			setState(97);
 			coord();
-			setState(91);
+			setState(98);
 			match(PUNTO_COMA);
 			}
 		}
@@ -600,11 +630,11 @@ public class LaberintoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(93);
+			setState(100);
 			match(FINAL);
-			setState(94);
+			setState(101);
 			coord();
-			setState(95);
+			setState(102);
 			match(PUNTO_COMA);
 			}
 		}
@@ -639,19 +669,19 @@ public class LaberintoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(97);
+			setState(104);
 			localizacion();
-			setState(101);
+			setState(108);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==IDENT) {
 				{
 				{
-				setState(98);
+				setState(105);
 				localizacion();
 				}
 				}
-				setState(103);
+				setState(110);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -686,11 +716,11 @@ public class LaberintoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(104);
+			setState(111);
 			match(IDENT);
-			setState(105);
+			setState(112);
 			coordenadas();
-			setState(106);
+			setState(113);
 			match(PUNTO_COMA);
 			}
 		}
@@ -712,10 +742,6 @@ public class LaberintoParser extends Parser {
 		public CoordContext coord(int i) {
 			return getRuleContext(CoordContext.class,i);
 		}
-		public List<TerminalNode> PUNTO_COMA() { return getTokens(LaberintoParser.PUNTO_COMA); }
-		public TerminalNode PUNTO_COMA(int i) {
-			return getToken(LaberintoParser.PUNTO_COMA, i);
-		}
 		public CoordenadasContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -729,19 +755,17 @@ public class LaberintoParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(111); 
+			setState(116); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(108);
+				setState(115);
 				coord();
-				setState(109);
-				match(PUNTO_COMA);
 				}
 				}
-				setState(113); 
+				setState(118); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==PARENTA );
@@ -764,8 +788,8 @@ public class LaberintoParser extends Parser {
 		public TerminalNode NUMERO(int i) {
 			return getToken(LaberintoParser.NUMERO, i);
 		}
-		public TerminalNode COMA() { return getToken(LaberintoParser.COMA, 0); }
 		public TerminalNode PARENTC() { return getToken(LaberintoParser.PARENTC, 0); }
+		public TerminalNode COMA() { return getToken(LaberintoParser.COMA, 0); }
 		public CoordContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -775,18 +799,27 @@ public class LaberintoParser extends Parser {
 	public final CoordContext coord() throws RecognitionException {
 		CoordContext _localctx = new CoordContext(_ctx, getState());
 		enterRule(_localctx, 30, RULE_coord);
+		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(115);
+			setState(120);
 			match(PARENTA);
-			setState(116);
+			setState(121);
 			match(NUMERO);
-			setState(117);
-			match(COMA);
-			setState(118);
+			setState(123);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==COMA) {
+				{
+				setState(122);
+				match(COMA);
+				}
+			}
+
+			setState(125);
 			match(NUMERO);
-			setState(119);
+			setState(126);
 			match(PARENTC);
 			}
 		}
@@ -802,34 +835,36 @@ public class LaberintoParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\30|\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4"+
-		"\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\3\2\3\2\3\2\3\2"+
-		"\5\2\'\n\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\5\3\5"+
-		"\3\5\3\5\3\5\3\6\3\6\3\6\6\6>\n\6\r\6\16\6?\3\7\3\7\3\7\3\b\3\b\3\b\3"+
-		"\b\3\b\3\t\3\t\3\t\6\tM\n\t\r\t\16\tN\3\n\3\n\3\n\3\13\3\13\3\13\3\13"+
-		"\5\13X\n\13\3\13\3\13\3\f\3\f\3\f\3\f\3\r\3\r\3\r\3\r\3\16\3\16\7\16f"+
-		"\n\16\f\16\16\16i\13\16\3\17\3\17\3\17\3\17\3\20\3\20\3\20\6\20r\n\20"+
-		"\r\20\16\20s\3\21\3\21\3\21\3\21\3\21\3\21\3\21\2\2\22\2\4\6\b\n\f\16"+
-		"\20\22\24\26\30\32\34\36 \2\2\2q\2\"\3\2\2\2\4*\3\2\2\2\6\60\3\2\2\2\b"+
-		"\65\3\2\2\2\n=\3\2\2\2\fA\3\2\2\2\16D\3\2\2\2\20L\3\2\2\2\22P\3\2\2\2"+
-		"\24S\3\2\2\2\26[\3\2\2\2\30_\3\2\2\2\32c\3\2\2\2\34j\3\2\2\2\36q\3\2\2"+
-		"\2 u\3\2\2\2\"#\7\27\2\2#$\5\6\4\2$&\5\4\3\2%\'\5\b\5\2&%\3\2\2\2&\'\3"+
-		"\2\2\2\'(\3\2\2\2()\5\24\13\2)\3\3\2\2\2*+\7\5\2\2+,\7\27\2\2,-\7\6\2"+
-		"\2-.\7\25\2\2./\7\26\2\2/\5\3\2\2\2\60\61\7\7\2\2\61\62\7\25\2\2\62\63"+
-		"\7\b\2\2\63\64\7\25\2\2\64\7\3\2\2\2\65\66\7\t\2\2\66\67\7\n\2\2\678\5"+
-		"\n\6\289\7\13\2\29\t\3\2\2\2:;\5\f\7\2;<\7\f\2\2<>\3\2\2\2=:\3\2\2\2>"+
-		"?\3\2\2\2?=\3\2\2\2?@\3\2\2\2@\13\3\2\2\2AB\7\27\2\2BC\7\25\2\2C\r\3\2"+
-		"\2\2DE\7\r\2\2EF\7\n\2\2FG\5\22\n\2GH\7\13\2\2H\17\3\2\2\2IJ\5\22\n\2"+
-		"JK\7\f\2\2KM\3\2\2\2LI\3\2\2\2MN\3\2\2\2NL\3\2\2\2NO\3\2\2\2O\21\3\2\2"+
-		"\2PQ\7\27\2\2QR\7\23\2\2R\23\3\2\2\2ST\7\n\2\2TU\5\26\f\2UW\5\30\r\2V"+
-		"X\5\32\16\2WV\3\2\2\2WX\3\2\2\2XY\3\2\2\2YZ\7\13\2\2Z\25\3\2\2\2[\\\7"+
-		"\16\2\2\\]\5 \21\2]^\7\f\2\2^\27\3\2\2\2_`\7\17\2\2`a\5 \21\2ab\7\f\2"+
-		"\2b\31\3\2\2\2cg\5\34\17\2df\5\34\17\2ed\3\2\2\2fi\3\2\2\2ge\3\2\2\2g"+
-		"h\3\2\2\2h\33\3\2\2\2ig\3\2\2\2jk\7\27\2\2kl\5\36\20\2lm\7\f\2\2m\35\3"+
-		"\2\2\2no\5 \21\2op\7\f\2\2pr\3\2\2\2qn\3\2\2\2rs\3\2\2\2sq\3\2\2\2st\3"+
-		"\2\2\2t\37\3\2\2\2uv\7\20\2\2vw\7\25\2\2wx\7\22\2\2xy\7\25\2\2yz\7\21"+
-		"\2\2z!\3\2\2\2\b&?NWgs";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\30\u0083\4\2\t\2"+
+		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
+		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\3\2\3\2"+
+		"\3\2\3\2\5\2\'\n\2\3\2\5\2*\n\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3\4\5"+
+		"\4\65\n\4\3\4\3\4\5\49\n\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6\6\6"+
+		"E\n\6\r\6\16\6F\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\t\3\t\3\t\6\tT\n\t\r"+
+		"\t\16\tU\3\n\3\n\3\n\3\13\3\13\3\13\3\13\5\13_\n\13\3\13\3\13\3\f\3\f"+
+		"\3\f\3\f\3\r\3\r\3\r\3\r\3\16\3\16\7\16m\n\16\f\16\16\16p\13\16\3\17\3"+
+		"\17\3\17\3\17\3\20\6\20w\n\20\r\20\16\20x\3\21\3\21\3\21\5\21~\n\21\3"+
+		"\21\3\21\3\21\3\21\2\2\22\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \2\2"+
+		"\2|\2\"\3\2\2\2\4-\3\2\2\2\6\64\3\2\2\2\b<\3\2\2\2\nD\3\2\2\2\fH\3\2\2"+
+		"\2\16K\3\2\2\2\20S\3\2\2\2\22W\3\2\2\2\24Z\3\2\2\2\26b\3\2\2\2\30f\3\2"+
+		"\2\2\32j\3\2\2\2\34q\3\2\2\2\36v\3\2\2\2 z\3\2\2\2\"#\7\27\2\2#$\5\6\4"+
+		"\2$&\5\4\3\2%\'\5\b\5\2&%\3\2\2\2&\'\3\2\2\2\')\3\2\2\2(*\5\16\b\2)(\3"+
+		"\2\2\2)*\3\2\2\2*+\3\2\2\2+,\5\24\13\2,\3\3\2\2\2-.\7\5\2\2./\7\27\2\2"+
+		"/\60\7\6\2\2\60\61\7\25\2\2\61\62\7\26\2\2\62\5\3\2\2\2\63\65\7\7\2\2"+
+		"\64\63\3\2\2\2\64\65\3\2\2\2\65\66\3\2\2\2\668\7\25\2\2\679\7\b\2\28\67"+
+		"\3\2\2\289\3\2\2\29:\3\2\2\2:;\7\25\2\2;\7\3\2\2\2<=\7\t\2\2=>\7\n\2\2"+
+		">?\5\n\6\2?@\7\13\2\2@\t\3\2\2\2AB\5\f\7\2BC\7\f\2\2CE\3\2\2\2DA\3\2\2"+
+		"\2EF\3\2\2\2FD\3\2\2\2FG\3\2\2\2G\13\3\2\2\2HI\7\27\2\2IJ\7\25\2\2J\r"+
+		"\3\2\2\2KL\7\r\2\2LM\7\n\2\2MN\5\20\t\2NO\7\13\2\2O\17\3\2\2\2PQ\5\22"+
+		"\n\2QR\7\f\2\2RT\3\2\2\2SP\3\2\2\2TU\3\2\2\2US\3\2\2\2UV\3\2\2\2V\21\3"+
+		"\2\2\2WX\7\27\2\2XY\7\23\2\2Y\23\3\2\2\2Z[\7\n\2\2[\\\5\26\f\2\\^\5\30"+
+		"\r\2]_\5\32\16\2^]\3\2\2\2^_\3\2\2\2_`\3\2\2\2`a\7\13\2\2a\25\3\2\2\2"+
+		"bc\7\16\2\2cd\5 \21\2de\7\f\2\2e\27\3\2\2\2fg\7\17\2\2gh\5 \21\2hi\7\f"+
+		"\2\2i\31\3\2\2\2jn\5\34\17\2km\5\34\17\2lk\3\2\2\2mp\3\2\2\2nl\3\2\2\2"+
+		"no\3\2\2\2o\33\3\2\2\2pn\3\2\2\2qr\7\27\2\2rs\5\36\20\2st\7\f\2\2t\35"+
+		"\3\2\2\2uw\5 \21\2vu\3\2\2\2wx\3\2\2\2xv\3\2\2\2xy\3\2\2\2y\37\3\2\2\2"+
+		"z{\7\20\2\2{}\7\25\2\2|~\7\22\2\2}|\3\2\2\2}~\3\2\2\2~\177\3\2\2\2\177"+
+		"\u0080\7\25\2\2\u0080\u0081\7\21\2\2\u0081!\3\2\2\2\f&)\648FU^nx}";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
