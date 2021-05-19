@@ -16,4 +16,3 @@ C:\Users\Asus\Documents\GIT\howto_maze\antlr_c\antlr_c\obj\Debug\net472\antlr_c.
 C:\Users\Asus\Documents\GIT\howto_maze\antlr_c\antlr_c\obj\Debug\net472\antlr_c.csproj.CopyComplete
 C:\Users\Asus\Documents\GIT\howto_maze\antlr_c\antlr_c\obj\Debug\net472\antlr_c.exe
 C:\Users\Asus\Documents\GIT\howto_maze\antlr_c\antlr_c\obj\Debug\net472\antlr_c.pdb
-C:\Users\Asus\Documents\GIT\howto_maze\antlr_c\antlr_c\obj\Debug\net472\antlr_c.csprojAssemblyReference.cache

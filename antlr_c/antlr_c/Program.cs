@@ -20,13 +20,20 @@ namespace antlr_c
 
                 Console.WriteLine(File.ReadAllText(path));
                 AntlrInputStream inputStream = new AntlrInputStream(File.ReadAllText(path));
-                LaberintoLexer speakLexer = new LaberintoLexer(inputStream);
-                CommonTokenStream commonTokenStream = new CommonTokenStream(speakLexer);
-                LaberintoParser speakParser = new LaberintoParser(commonTokenStream);
-
+                LaberintoLexer laberintoLexer = new LaberintoLexer(inputStream);
+                CommonTokenStream commonTokenStream = new CommonTokenStream(laberintoLexer);
+                LaberintoParser laberintoParser = new LaberintoParser(commonTokenStream);
+                //parser.RemoveErrorListeners();
+                //parser.AddErrorListener(new MyErrorListener());
                 //LaberintoParser.ChatContext chatContext = LaberintoParser.chat();
-                MiLaberintoVisitor visitor = new antlr_c.MiLaberintoVisitor();
-                visitor.Visit(speakParser.inicio());
+                MiLaberintoVisitor visitor = new MiLaberintoVisitor();
+                Antlr4.Runtime.Tree.IParseTree tree = laberintoParser.inicio();
+                visitor.Visit(tree);
+                
+                Console.WriteLine(tree.ToStringTree());
+                //Antlr4.Runtime.Tree.IParseTree parseTree = laberintoParser.inicio();
+                //Console.WriteLine();
+
                 //visitor.Visit(chatContext);
 
                 /*foreach (var line in visitor.VisitBloque)
