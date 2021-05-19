@@ -8,6 +8,7 @@ namespace antlr_c
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
@@ -29,8 +30,13 @@ namespace antlr_c
                 MiLaberintoVisitor visitor = new MiLaberintoVisitor();
                 Antlr4.Runtime.Tree.IParseTree tree = laberintoParser.inicio();
                 visitor.Visit(tree);
-                
-                Console.WriteLine(tree.ToStringTree());
+                var cleanedFormula = string.Empty;
+                var tokenList = commonTokenStream.GetTokens();
+                for (var i = 0; i < tokenList.Count - 1; i++)
+                {
+                    cleanedFormula += tokenList[i].Text;
+                }
+                Console.WriteLine(cleanedFormula);
                 //Antlr4.Runtime.Tree.IParseTree parseTree = laberintoParser.inicio();
                 //Console.WriteLine();
 

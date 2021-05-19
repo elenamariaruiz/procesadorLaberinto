@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-class Elemento {
+class Elemento implements Comparable<Elemento>{
     private String tipo;
     private Integer valor;
     private String elemento;
@@ -24,6 +24,12 @@ class Elemento {
         this.coordenadas=coordenadas;
     }
 
+    public int compareTo(Elemento e2)
+    {
+        return tipo.compareTo(e2.getTipo());
+    }
+
+
     public void setTipo(String tipo){
         this.tipo=tipo;
     }
@@ -31,7 +37,7 @@ class Elemento {
         this.valor = valor;
     }
 
-    public void setNombre(String elemento){
+    public void setElemento(String elemento){
         this.elemento=elemento;
     }
 

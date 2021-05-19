@@ -69,12 +69,15 @@ S ::= ident:id DIMENSION:dm DIRECTIVAS:dr DEF_MONEDAS:mn BLOQUE:bq {:Laberinto l
 														laberinto.setDirectiva((Directiva)dr);														
 														laberinto.setDimension((Integer[])dm); 
 														laberinto.setMonedas(((ArrayList<Elemento>)mn));
+														Semantica.comprobarLaberinto(laberinto);
 														RESULT=laberinto;:}
+
 	| ident:id DIMENSION:dm DIRECTIVAS:dr DEF_ENEMIGOS:en BLOQUE:bq {:Laberinto laberinto = ((Laberinto)bq); 
 														laberinto.setNombre(id);
 														laberinto.setDirectiva((Directiva)dr);														
 														laberinto.setDimension((Integer[])dm); 
 														laberinto.setEnemigos(((ArrayList<Elemento>)en));
+														Semantica.comprobarLaberinto(laberinto);
 														RESULT=laberinto;:}
 	| ident:id DIMENSION:dm DIRECTIVAS:dr DEF_MONEDAS:mn DEF_ENEMIGOS:en BLOQUE:bq {:Laberinto laberinto = ((Laberinto)bq); 
 														laberinto.setNombre(id);
@@ -82,11 +85,13 @@ S ::= ident:id DIMENSION:dm DIRECTIVAS:dr DEF_MONEDAS:mn BLOQUE:bq {:Laberinto l
 														laberinto.setDimension((Integer[])dm); 
 														laberinto.setMonedas(((ArrayList<Elemento>)mn));
 														laberinto.setEnemigos(((ArrayList<Elemento>)en));
+														Semantica.comprobarLaberinto(laberinto);
 														RESULT=laberinto;:}
 	| ident:id DIMENSION:dm DIRECTIVAS:dr BLOQUE:bq	{:Laberinto laberinto = ((Laberinto)bq); 
 														laberinto.setNombre(id);
 														laberinto.setDirectiva((Directiva)dr);														
 														laberinto.setDimension((Integer[])dm);
+														Semantica.comprobarLaberinto(laberinto);
 														RESULT=laberinto;:} ;
 
 DIRECTIVAS ::= use ident:nL time numero:nm utemp:un {:Directiva directiva = new Directiva(nL, nm, un.charAt(0)); RESULT=directiva;:}
