@@ -6,11 +6,11 @@ public class Laberinto {
     private Integer[] dimension;
     private ArrayList<Elemento> monedas;
     private ArrayList<Elemento> enemigos;
-    private ArrayList<Coordenada> localizaciones;
+    private ArrayList<Elemento> localizaciones;
     private Coordenada inicio;
     private Coordenada meta;
 
-    public Laberinto (String nombre, Integer[] dimension, ArrayList<Elemento> monedas, ArrayList<Elemento> enemigos, ArrayList<Coordenada> localizaciones,
+    public Laberinto (String nombre, Integer[] dimension, ArrayList<Elemento> monedas, ArrayList<Elemento> enemigos, ArrayList<Elemento> localizaciones,
         Coordenada inicio, Coordenada meta){
         this.nombre=nombre;
         this.localizaciones=localizaciones;
@@ -26,7 +26,7 @@ public class Laberinto {
         this.inicio=inicio;
         this.meta=meta;
     }
-    public Laberinto (ArrayList<Coordenada> localizaciones,
+    public Laberinto (ArrayList<Elemento> localizaciones,
     Coordenada inicio, Coordenada meta){
         this.localizaciones=localizaciones;
         this.inicio=inicio;
@@ -61,7 +61,7 @@ public class Laberinto {
         return this.meta;
     }
 
-    public ArrayList<Coordenada> getLocalizaciones(){
+    public ArrayList<Elemento> getLocalizaciones(){
         return this.localizaciones;
     }
 
@@ -95,7 +95,7 @@ public class Laberinto {
         this.meta=meta;
     }
 
-    public void setLocalizaciones(ArrayList<Coordenada> localizaciones){
+    public void setLocalizaciones(ArrayList<Elemento> localizaciones){
         this.localizaciones=localizaciones;
     }    
 

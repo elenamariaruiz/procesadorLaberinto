@@ -546,8 +546,7 @@ class CUP$parser$actions {
 		int nmleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int nmright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Integer nm = (Integer)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		Elemento elemento = new Elemento(tp, "moneda", nm);
-							System.out.println("Tipo: "+elemento.getTipo()); RESULT=elemento; 
+		Elemento elemento = new Elemento(tp, "moneda", nm); RESULT=elemento; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("MONEDA",7, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -636,7 +635,7 @@ class CUP$parser$actions {
 		int lcleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).left;
 		int lcright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).right;
 		Object lc = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-1)).value;
-		Laberinto laberinto = new Laberinto(((ArrayList<Coordenada>)lc), 
+		Laberinto laberinto = new Laberinto(((ArrayList<Elemento>)lc), 
 							((Elemento)ini).getCoordenadas().get(0), ((Elemento)fn).getCoordenadas().get(0)); RESULT=laberinto;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("BLOQUE",3, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-4)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
@@ -707,7 +706,7 @@ class CUP$parser$actions {
 		int lcsleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int lcsright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Object lcs = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		((ArrayList<Elemento>)lcs).add(0, (Elemento)lc); System.out.println(lcs);RESULT=lcs;
+		((ArrayList<Elemento>)lcs).add(0, (Elemento)lc);RESULT=lcs;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("LOCALIZACIONES",12, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -723,7 +722,7 @@ class CUP$parser$actions {
 		int cdsright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).right;
 		Object cds = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-1)).value;
 		Elemento elemento = new Elemento(tp, ((ArrayList<Coordenada>)cds));
-							System.out.println("Tipo: "+elemento.getTipo()); RESULT=elemento;
+							; RESULT=elemento;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("LOCALIZACION",13, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -751,7 +750,7 @@ class CUP$parser$actions {
 		int lcleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int lcright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Object lc = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		((ArrayList<Coordenada>)lc).add(0, (Coordenada)cd); System.out.println(lc);RESULT=lc;
+		((ArrayList<Coordenada>)lc).add(0, (Coordenada)cd); RESULT=lc;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("COORDENADAS",14, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -766,7 +765,7 @@ class CUP$parser$actions {
 		int nyleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).left;
 		int nyright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).right;
 		Integer ny = (Integer)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-1)).value;
-		System.out.println("Coordenada leida");  RESULT =new Coordenada(nx, ny);
+		 RESULT =new Coordenada(nx, ny);
               CUP$parser$result = parser.getSymbolFactory().newSymbol("COORD",15, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-4)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;

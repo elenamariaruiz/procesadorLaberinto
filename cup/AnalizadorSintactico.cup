@@ -112,8 +112,7 @@ MONEDAS ::= MONEDA:md punto_coma {:ArrayList<Elemento> lista = new ArrayList<Ele
 							lista.add((Elemento)md) ; RESULT=lista;:}
 			| MONEDA:md punto_coma MONEDAS:lmd {:((ArrayList<Elemento>)lmd).add(0, (Elemento)md); RESULT=lmd;:};
 
-MONEDA ::= ident:tp numero:nm {:Elemento elemento = new Elemento(tp, "moneda", nm);
-							System.out.println("Tipo: "+elemento.getTipo()); RESULT=elemento; :};
+MONEDA ::= ident:tp numero:nm {:Elemento elemento = new Elemento(tp, "moneda", nm); RESULT=elemento; :};
 
 DEF_ENEMIGOS ::= enemigos llave_a ENEMIGOS:len llave_c {:RESULT=((ArrayList<Elemento>)len);:}  
 			| llave_a:ll ENEMIGOS:len llave_c {:report_syntax_error(String.valueOf(ll), llleft, llright, "Falta la palabra enemigo", false);
@@ -125,7 +124,7 @@ ENEMIGOS ::= ENEMIGO:en punto_coma ENEMIGOS:len {:((ArrayList<Elemento>)len).add
 
 ENEMIGO ::= ident:tp damage:dm {:Elemento elemento = new Elemento(tp, "enemigo", dm); RESULT=elemento;:};
 
-BLOQUE ::= llave_a INICIO:ini FINAL:fn LOCALIZACIONES:lc llave_c {:Laberinto laberinto = new Laberinto(((ArrayList<Coordenada>)lc), 
+BLOQUE ::= llave_a INICIO:ini FINAL:fn LOCALIZACIONES:lc llave_c {:Laberinto laberinto = new Laberinto(((ArrayList<Elemento>)lc), 
 							((Elemento)ini).getCoordenadas().get(0), ((Elemento)fn).getCoordenadas().get(0)); RESULT=laberinto;:}
 			| llave_a INICIO:ini FINAL:fn llave_c {:Laberinto laberinto = new Laberinto(((Elemento)ini).getCoordenadas().get(0), 
 							((Elemento)fn).getCoordenadas().get(0)); RESULT=laberinto;:};
@@ -142,14 +141,14 @@ FINAL ::= end COORD:cds punto_coma {:ArrayList<Coordenada> loc = new ArrayList<C
 
 LOCALIZACIONES ::= LOCALIZACION:lc {:ArrayList<Elemento> lista = new ArrayList<Elemento>();
 							lista.add((Elemento)lc); RESULT=lista;:}
-			| LOCALIZACION:lc LOCALIZACIONES:lcs {:((ArrayList<Elemento>)lcs).add(0, (Elemento)lc); System.out.println(lcs);RESULT=lcs;:};
+			| LOCALIZACION:lc LOCALIZACIONES:lcs {:((ArrayList<Elemento>)lcs).add(0, (Elemento)lc);RESULT=lcs;:};
 
 LOCALIZACION ::= ident:tp COORDENADAS:cds punto_coma {:Elemento elemento = new Elemento(tp, ((ArrayList<Coordenada>)cds));
-							System.out.println("Tipo: "+elemento.getTipo()); RESULT=elemento;:};
+							; RESULT=elemento;:};
 
 COORDENADAS ::= COORD:cd {:ArrayList<Coordenada> lista = new ArrayList<Coordenada>();
 							lista.add((Coordenada)cd) ; RESULT=lista;:}
-			| COORD:cd COORDENADAS:lc {:((ArrayList<Coordenada>)lc).add(0, (Coordenada)cd); System.out.println(lc);RESULT=lc;:};
+			| COORD:cd COORDENADAS:lc {:((ArrayList<Coordenada>)lc).add(0, (Coordenada)cd); RESULT=lc;:};
 
 /*LOCALIZACION ::=  ident COORD punto_coma {:System.out.println("Loc leida");:};
 
@@ -158,7 +157,7 @@ LOC_ENEMIGOS ::= LOC_ENEMIGO punto_coma
 
 LOC_ENEMIGO ::= enemigo ident COORD punto_coma;*/
 
-COORD ::= parenta numero:nx coma numero:ny parentc {:System.out.println("Coordenada leida");  RESULT =new Coordenada(nx, ny);:}
+COORD ::= parenta numero:nx coma numero:ny parentc {: RESULT =new Coordenada(nx, ny);:}
 		| parenta numero:nx numero:ny parentc {:report_syntax_error(String.valueOf(ny), nyleft, nyright, "Falta una coma entre los valores "+nx+" y "+ny+" de la coordenada", false);
 							RESULT =new Coordenada(nx, ny);:}
 		| numero:nx coma numero:ny {:report_syntax_error(String.valueOf(ny), nyleft, nyright, "Las coordenadas deben ir entre parentesis \"(\" \")\"", false);
