@@ -5,6 +5,10 @@
 
 import java_cup.runtime.*;
 import java.util.*;
+import java.io.OutputStreamWriter;
+import java.io.OutputStream;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java_cup.runtime.XMLElement;
 
 /** CUP v0.11b 20160615 (GIT 4ac7450) generated parser.
@@ -175,6 +179,25 @@ public class parser extends java_cup.runtime.lr_parser {
 
 
 
+
+	public static void laberinto2json(Laberinto laberinto){
+        String text ="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE xml>\n <laberintos> \n";
+        /*for (int i = 0; i< recetas.size()-1; i++){
+            text = text + recetas.get(i).toString() + ", ";
+        }*/
+		
+        text = text + laberinto.toString()+"";
+		text=text+"</laberintos>";
+
+        try{
+            OutputStream os = new FileOutputStream(laberinto.getNombre()+".xml");
+            PrintWriter pw = new PrintWriter(new OutputStreamWriter(os, "UTF-8"));
+            pw.write(text);
+            pw.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
     public void syntax_error(String str, int linea, int columna, String mensaje_adicional, boolean fatal){
         
         StringBuffer m = new StringBuffer("");
@@ -260,9 +283,11 @@ class CUP$parser$actions {
 														laberinto.setNombre(id);
 														laberinto.setDirectiva((Directiva)dr);														
 														laberinto.setDimension((Integer[])dm); 
-														laberinto.setMonedas(((ArrayList<Elemento>)mn));
+														laberinto.setDefinicion(((ArrayList<Elemento>)mn));
 														Semantica.comprobarLaberinto(laberinto);
+														laberinto2json(laberinto);
 														RESULT=laberinto;
+														
               CUP$parser$result = parser.getSymbolFactory().newSymbol("S",0, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-4)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -304,9 +329,11 @@ class CUP$parser$actions {
 														laberinto.setNombre(id);
 														laberinto.setDirectiva((Directiva)dr);														
 														laberinto.setDimension((Integer[])dm); 
-														laberinto.setEnemigos(((ArrayList<Elemento>)en));
+														laberinto.setDefinicion(((ArrayList<Elemento>)en));
 														Semantica.comprobarLaberinto(laberinto);
+														laberinto2json(laberinto);
 														RESULT=laberinto;
+														
               CUP$parser$result = parser.getSymbolFactory().newSymbol("S",0, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-4)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -337,10 +364,14 @@ class CUP$parser$actions {
 														laberinto.setNombre(id);
 														laberinto.setDirectiva((Directiva)dr);														
 														laberinto.setDimension((Integer[])dm); 
-														laberinto.setMonedas(((ArrayList<Elemento>)mn));
-														laberinto.setEnemigos(((ArrayList<Elemento>)en));
+														ArrayList<Elemento> definicion = ((ArrayList<Elemento>)mn);
+														ArrayList<Elemento> definicion2 = ((ArrayList<Elemento>)en);
+														definicion.addAll(definicion2);
+														laberinto.setDefinicion(definicion);
 														Semantica.comprobarLaberinto(laberinto);
+														laberinto2json(laberinto);
 														RESULT=laberinto;
+														
               CUP$parser$result = parser.getSymbolFactory().newSymbol("S",0, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-5)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -366,6 +397,7 @@ class CUP$parser$actions {
 														laberinto.setDirectiva((Directiva)dr);														
 														laberinto.setDimension((Integer[])dm);
 														Semantica.comprobarLaberinto(laberinto);
+														laberinto2json(laberinto);
 														RESULT=laberinto;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("S",0, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-3)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }

@@ -5,18 +5,17 @@ import java.util.Set;
 public class Semantica {
     public static void comprobarLaberinto(Laberinto laberinto) throws ElementoDuplicadoException, CoordenadaNoValidaException, ElementoNoDeclaradoException,
         CoordenadaRepetidaException{
-        declaracionUnica(laberinto.getMonedas(), laberinto.getEnemigos());
+        declaracionUnica(laberinto.getDefinicion());
         coordenadaValida("Declaración de inicio: ",laberinto.getDimension(), laberinto.getInicio());
         coordenadaValida("Declaración de meta: ",laberinto.getDimension(), laberinto.getMeta());
         //Comprobar que inicio y meta no están en la misma coordenada
-        comprobarLocalizaciones(laberinto.getInicio(), laberinto.getMeta(), laberinto.getDimension(), laberinto.getEnemigos(), laberinto.getMonedas(), laberinto.getLocalizaciones());
+        comprobarLocalizaciones(laberinto.getInicio(), laberinto.getMeta(), laberinto.getDimension(), laberinto.getDefinicion(), laberinto.getLocalizaciones());
     }
-    public static void declaracionUnica(ArrayList<Elemento> monedas, ArrayList<Elemento> enemigos) throws ElementoDuplicadoException{
-        monedas.addAll(enemigos);
-        List<Elemento> duplicates = new ArrayList<Elemento>();
+    public static void declaracionUnica(ArrayList<Elemento> definicion) throws ElementoDuplicadoException{
+       // List<Elemento> duplicates = new ArrayList<Elemento>();
         Set<Elemento> elementoSet = new TreeSet<Elemento>();
         
-        for(Elemento e : monedas)
+        for(Elemento e : definicion)
         {
             if(!elementoSet.add(e))
             {
@@ -27,18 +26,18 @@ public class Semantica {
         
     }
 
-    public static void comprobarLocalizaciones(Coordenada inicio, Coordenada meta,Integer[] dimensionLaberinto, ArrayList<Elemento> monedas, ArrayList<Elemento> enemigos,
+    public static void comprobarLocalizaciones(Coordenada inicio, Coordenada meta,Integer[] dimensionLaberinto, ArrayList<Elemento> definicion,
      ArrayList<Elemento> localizaciones) throws ElementoNoDeclaradoException, CoordenadaRepetidaException, CoordenadaNoValidaException{
         int cont=0;
         Set<Coordenada> coordSet = new TreeSet<Coordenada>();
-        monedas.addAll(enemigos);
+        
         //coordSet.add(inicio);
         //if(!coordSet.add(meta)){
           //  throw new CoordenadaRepetidaException(meta);
         //}        
         //Elemento declarado anteriormente(llevar a otro metodo)
         for(Elemento e : localizaciones){
-            for(Elemento m: monedas){
+            for(Elemento m: definicion){
                 if(e.getTipo().equals(m.getTipo())){
                     cont++;
                 }                    

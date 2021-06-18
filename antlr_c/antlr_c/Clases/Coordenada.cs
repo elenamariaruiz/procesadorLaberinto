@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace antlr_c.Clases
 {
-    class Coordenada
+    public class Coordenada
     {
 		private int x;
 		private int y;

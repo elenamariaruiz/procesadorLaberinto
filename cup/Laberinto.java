@@ -4,8 +4,7 @@ public class Laberinto {
     private String nombre;
     private Directiva directiva;
     private Integer[] dimension;
-    private ArrayList<Elemento> monedas;
-    private ArrayList<Elemento> enemigos;
+    private ArrayList<Elemento> definicion;
     private ArrayList<Elemento> localizaciones;
     private Coordenada inicio;
     private Coordenada meta;
@@ -15,8 +14,8 @@ public class Laberinto {
         this.nombre=nombre;
         this.localizaciones=localizaciones;
         this.dimension=dimension;
-        this.monedas=monedas;
-        this.enemigos=enemigos;
+        monedas.addAll(enemigos);
+        this.definicion=monedas;
         this.inicio=inicio;
         this.meta=meta;
     }
@@ -45,13 +44,10 @@ public class Laberinto {
         return this.dimension;
     }
 
-    public ArrayList<Elemento> getMonedas(){
-        return this.monedas;
+    public ArrayList<Elemento> getDefinicion(){
+        return this.definicion;
     }
 
-    public ArrayList<Elemento> getEnemigos(){
-        return this.enemigos;
-    }
 
     public Coordenada getInicio(){
         return this.inicio;
@@ -79,13 +75,10 @@ public class Laberinto {
         this.dimension=dimension;
     }
 
-    public void setMonedas(ArrayList<Elemento> monedas){
-        this.monedas=monedas;
+    public void setDefinicion(ArrayList<Elemento> definicion){
+        this.definicion=definicion;
     }
 
-    public void setEnemigos(ArrayList<Elemento> enemigos){
-        this.enemigos=enemigos;
-    }
 
     public void setInicio(Coordenada inicio){
         this.inicio=inicio;
@@ -99,6 +92,37 @@ public class Laberinto {
         this.localizaciones=localizaciones;
     }    
 
+    public String definicionToString(){
+        String str="";
+        for (int i = 0; i<this.definicion.size(); i++){
+            str = str +"\t<definicion>\n\t"+ this.definicion.get(i)+ "</definicion>\n";
+        }
+        return str;
+    }
+
+    public String localizacionesToString(){
+        String str = "";
+        for (int i = 0; i<this.localizaciones.size(); i++){
+            str = str +"\t<localizacion>\n\t"+ this.localizaciones.get(i)+ "</localizacion>\n ";
+        }
+        return str;
+    }
 
 
+    public String toString(){
+        
+        String salida="<laberinto>\n<nombre>"+this.nombre+"</nombre>\n";
+        salida = salida+"<use>"+this.directiva.getNombreLaberinto()+"</use>\n"+
+            "<tiempo>"+this.directiva.getTiempo()+"</tiempo>\n"+
+            "<dimension><alto>"+this.dimension[0]+"</alto>\n<ancho>"+this.dimension[1]+"</ancho>\n</dimension>\n"+
+            "<inicio>\n\t"+this.inicio.toString()+"\n</inicio>\n<final>\n\t"+this.meta.toString()+"\n</final>\n"+
+            "<definiciones>\n"+definicionToString()+"</definiciones>\n"+
+            "<localizaciones>\n"+localizacionesToString()+"</localizaciones>\n";
+        
+        salida=salida+"</laberinto>\n";        
+        return salida;
+    }
+
+
+    
 }

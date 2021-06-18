@@ -59,4 +59,19 @@ class Elemento implements Comparable<Elemento>{
     public ArrayList<Coordenada> getCoordenadas(){
         return this.coordenadas;
     }
+
+    public String toString(){
+        String str = "\t<ident>"+this.tipo+"</ident>\n\t\t<elemento>"+this.elemento+"</elemento>\n\t\t<valor>"+this.valor+"</valor>\n\t";
+        int i;
+        if(this.coordenadas!=null){
+            str += "\t<coordenadas>\n";
+            for (i=0;i<this.coordenadas.size(); i++){
+                str = str +"\t\t\t<coordenada>"+ coordenadas.get(i).toString()+"</coordenada>\n ";
+            }
+            
+            str+="\t\t</coordenadas>\n\t ";
+        }      
+        return str;
+    }
+    
 }

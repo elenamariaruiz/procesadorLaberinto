@@ -1,0 +1,1 @@
+[{"nombre": "Laberinto1", "use": "LAB1", "tiempo": "200s", "dimension":[Ljava.lang.Integer;@1f17ae12, "inicio": {2, 1}, "final": {1, 6} ,"definicion": {Elemento@34c45dca, Elemento@52cc8049, Elemento@5b6f7412, Elemento@27973e9b, "localizaciones": {Elemento@312b1dae, Elemento@7530d0a, Elemento@27bc2616, Elemento@3941a79c]

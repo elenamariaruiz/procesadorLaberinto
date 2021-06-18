@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+ <laberintos> 
+<Laberinto>
+<nombre>Laberinto1</nombre>
+<use>LAB1</use>
+<tiempo>200</tiempo>
+<dimension><alto>7</alto>
+<ancho>7</ancho>
+</dimension>
+<inicio>
+	<x> 2</x><y>1</y>
+</inicio>
+<final>
+	<x> 1</x><y>6</y>
+</final>
+<definiciones>
+	<definicion>
+		<ident>moneda1</ident>
+		<elemento>moneda</elemento>
+		<valor>15</valor>
+	</definicion>
+	<definicion>
+		<ident>moneda2</ident>
+		<elemento>moneda</elemento>
+		<valor>10</valor>
+	</definicion>
+	<definicion>
+		<ident>enemigo1</ident>
+		<elemento>enemigo</elemento>
+		<valor>-10</valor>
+	</definicion>
+	<definicion>
+		<ident>enemigo2</ident>
+		<elemento>enemigo</elemento>
+		<valor>-50</valor>
+	</definicion>
+</definiciones>
+<localizaciones>
+	<localizacion>
+		<ident>moneda1</ident>
+		<elemento>null</elemento>
+		<valor>null</valor>
+		<coordenadas>
+			<coordenada><x> 2</x><y>3</y></coordenada>
+ 			<coordenada><x> 1</x><y>1</y></coordenada>
+ 		</coordenadas>
+	 </localizacion>
+ 	<localizacion>
+		<ident>moneda2</ident>
+		<elemento>null</elemento>
+		<valor>null</valor>
+		<coordenadas>
+			<coordenada><x> 1</x><y>2</y></coordenada>
+ 		</coordenadas>
+	 </localizacion>
+ 	<localizacion>
+		<ident>enemigo1</ident>
+		<elemento>null</elemento>
+		<valor>null</valor>
+		<coordenadas>
+			<coordenada><x> 1</x><y>5</y></coordenada>
+ 			<coordenada><x> 5</x><y>1</y></coordenada>
+ 		</coordenadas>
+	 </localizacion>
+ 	<localizacion>
+		<ident>enemigo2</ident>
+		<elemento>null</elemento>
+		<valor>null</valor>
+		<coordenadas>
+			<coordenada><x> 4</x><y>2</y></coordenada>
+ 		</coordenadas>
+	 </localizacion>
+ </localizaciones>
+</Laberinto>
+</laberintos>
