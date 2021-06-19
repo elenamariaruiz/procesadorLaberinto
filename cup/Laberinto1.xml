@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE xml>
  <laberintos> 
-<Laberinto>
+<laberinto>
 <nombre>Laberinto1</nombre>
 <use>LAB1</use>
 <tiempo>200</tiempo>
+<unidadTiempo>s</unidadTiempo>
 <dimension><alto>7</alto>
 <ancho>7</ancho>
 </dimension>
 <inicio>
-	<x> 2</x><y>1</y>
+			<x> 2</x>
+			<y>1</y>
+
 </inicio>
 <final>
-	<x> 1</x><y>6</y>
+			<x> 1</x>
+			<y>6</y>
+
 </final>
 <definiciones>
 	<definicion>
@@ -39,38 +43,46 @@
 <localizaciones>
 	<localizacion>
 		<ident>moneda1</ident>
-		<elemento>null</elemento>
-		<valor>null</valor>
-		<coordenadas>
-			<coordenada><x> 2</x><y>3</y></coordenada>
- 			<coordenada><x> 1</x><y>1</y></coordenada>
- 		</coordenadas>
-	 </localizacion>
+		<coordenada>
+			<x> 2</x>
+			<y>3</y>
+		</coordenada>
+	</localizacion>
+ 	<localizacion>
+		<ident>moneda1</ident>
+		<coordenada>
+			<x> 1</x>
+			<y>1</y>
+		</coordenada>
+	</localizacion>
  	<localizacion>
 		<ident>moneda2</ident>
-		<elemento>null</elemento>
-		<valor>null</valor>
-		<coordenadas>
-			<coordenada><x> 1</x><y>2</y></coordenada>
- 		</coordenadas>
-	 </localizacion>
+		<coordenada>
+			<x> 1</x>
+			<y>2</y>
+		</coordenada>
+	</localizacion>
  	<localizacion>
 		<ident>enemigo1</ident>
-		<elemento>null</elemento>
-		<valor>null</valor>
-		<coordenadas>
-			<coordenada><x> 1</x><y>5</y></coordenada>
- 			<coordenada><x> 5</x><y>1</y></coordenada>
- 		</coordenadas>
-	 </localizacion>
+		<coordenada>
+			<x> 1</x>
+			<y>5</y>
+		</coordenada>
+	</localizacion>
+ 	<localizacion>
+		<ident>enemigo1</ident>
+		<coordenada>
+			<x> 5</x>
+			<y>1</y>
+		</coordenada>
+	</localizacion>
  	<localizacion>
 		<ident>enemigo2</ident>
-		<elemento>null</elemento>
-		<valor>null</valor>
-		<coordenadas>
-			<coordenada><x> 4</x><y>2</y></coordenada>
- 		</coordenadas>
-	 </localizacion>
+		<coordenada>
+			<x> 4</x>
+			<y>2</y>
+		</coordenada>
+	</localizacion>
  </localizaciones>
-</Laberinto>
+</laberinto>
 </laberintos>

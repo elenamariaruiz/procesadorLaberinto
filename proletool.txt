@@ -1,0 +1,26 @@
+/*
+ * En esta gramatica se realiza el analisis LR(1) y despues el LALR(1)
+ */
+grammar gramatica_1
+{
+    analysis    LR1, LALR1;
+    nonterminal DIMENSION, S, DIRECTIVAS, DEF_MONEDAS, BLOQUE, DEF_ENEMIGOS, MONEDAS, ENEMIGOS, MONEDA, ENEMIGO, INICIO, FINAL, LOCALIZACIONES, LOCALIZACION, COORD, COORDENADAS;
+    terminal    ident, usar, time, numero, utemp, alto, ancho, monedas, llavea, llavec, punto_coma, damage, inicio, end, parenta, parentc, coma, enemigos;
+
+    S := ident DIMENSION DIRECTIVAS DEF_MONEDAS DEF_ENEMIGOS BLOQUE;
+    DIRECTIVAS := usar ident time numero utemp;
+    DIMENSION := alto numero ancho numero;
+    DEF_MONEDAS := monedas llavea MONEDAS llavec;
+    MONEDAS := MONEDA punto_coma | MONEDA punto_coma MONEDAS;
+    MONEDA := ident numero;
+    DEF_ENEMIGOS := enemigos llavea ENEMIGOS llavec;
+    ENEMIGOS := ENEMIGO punto_coma | ENEMIGO punto_coma ENEMIGOS;
+    ENEMIGO := ident damage;
+    BLOQUE := llavea INICIO FINAL LOCALIZACIONES llavec;
+    INICIO := inicio COORD punto_coma;
+    FINAL := end COORD punto_coma;
+    LOCALIZACIONES := LOCALIZACION | LOCALIZACION LOCALIZACIONES;
+    LOCALIZACION := ident COORDENADAS punto_coma;
+    COORDENADAS := COORD | COORD COORDENADAS;
+    COORD := parenta numero coma numero parentc;
+}

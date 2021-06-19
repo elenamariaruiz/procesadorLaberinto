@@ -37,6 +37,6 @@ class Coordenada  implements Comparable<Coordenada>{
 	}
 
 	public String toString() {
-		return "<x> "+this.x+"</x><y>"+this.y+"</y>";
+		return "<x> "+this.x+"</x>\n\t\t\t<y>"+this.y+"</y>\n";
 	} 
 }

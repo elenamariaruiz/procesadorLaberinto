@@ -61,16 +61,17 @@ class Elemento implements Comparable<Elemento>{
     }
 
     public String toString(){
-        String str = "\t<ident>"+this.tipo+"</ident>\n\t\t<elemento>"+this.elemento+"</elemento>\n\t\t<valor>"+this.valor+"</valor>\n\t";
-        int i;
+        String str = "\t<ident>"+this.tipo+"</ident>\n\t\t<elemento>"+this.elemento+"</elemento>\n\t\t<valor>"+this.valor+"</valor>\n\t";  
+        return str;
+    }
+
+    public String toStringLocalizacion(){
+        String str="";
         if(this.coordenadas!=null){
-            str += "\t<coordenadas>\n";
-            for (i=0;i<this.coordenadas.size(); i++){
-                str = str +"\t\t\t<coordenada>"+ coordenadas.get(i).toString()+"</coordenada>\n ";
+            for (int i=0;i<this.coordenadas.size(); i++){
+                str = str+"\t<localizacion>\n\t\t<ident>"+this.tipo+"</ident>\n\t\t<coordenada>\n\t\t\t"+ coordenadas.get(i).toString()+"\t\t</coordenada>\n"+ "\t</localizacion>\n ";
             }
-            
-            str+="\t\t</coordenadas>\n\t ";
-        }      
+        }  
         return str;
     }
     

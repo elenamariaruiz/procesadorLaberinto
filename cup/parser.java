@@ -181,7 +181,7 @@ public class parser extends java_cup.runtime.lr_parser {
 
 
 	public static void laberinto2json(Laberinto laberinto){
-        String text ="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE xml>\n <laberintos> \n";
+        String text ="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n <laberintos> \n";
         /*for (int i = 0; i< recetas.size()-1; i++){
             text = text + recetas.get(i).toString() + ", ";
         }*/

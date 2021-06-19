@@ -103,7 +103,7 @@ public class Laberinto {
     public String localizacionesToString(){
         String str = "";
         for (int i = 0; i<this.localizaciones.size(); i++){
-            str = str +"\t<localizacion>\n\t"+ this.localizaciones.get(i)+ "</localizacion>\n ";
+            str = str + this.localizaciones.get(i).toStringLocalizacion();
         }
         return str;
     }
@@ -114,8 +114,9 @@ public class Laberinto {
         String salida="<laberinto>\n<nombre>"+this.nombre+"</nombre>\n";
         salida = salida+"<use>"+this.directiva.getNombreLaberinto()+"</use>\n"+
             "<tiempo>"+this.directiva.getTiempo()+"</tiempo>\n"+
+            "<unidadTiempo>"+this.directiva.getUnidad()+"</unidadTiempo>\n"+
             "<dimension><alto>"+this.dimension[0]+"</alto>\n<ancho>"+this.dimension[1]+"</ancho>\n</dimension>\n"+
-            "<inicio>\n\t"+this.inicio.toString()+"\n</inicio>\n<final>\n\t"+this.meta.toString()+"\n</final>\n"+
+            "<inicio>\n\t\t\t"+this.inicio.toString()+"\n</inicio>\n<final>\n\t\t\t"+this.meta.toString()+"\n</final>\n"+
             "<definiciones>\n"+definicionToString()+"</definiciones>\n"+
             "<localizaciones>\n"+localizacionesToString()+"</localizaciones>\n";
         
