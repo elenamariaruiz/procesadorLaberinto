@@ -1,10 +1,10 @@
 Laberinto1
 alto 3 ancho 3
 use LAB1 time 200 s
-monedas {moneda1 20; moneda2 10;}
+monedas {moneda1 ; moneda2 10;}
 enemigos {enemigo1 -10; enemigo2 -50;}
 { inicio (3, 5);
-final (1,  10);
+final (1,  2);
 moneda1 (2, 3) (1, 1);
 moneda2 (1 2);
 enemigo1 (1, 1) (9, 1);

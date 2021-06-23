@@ -15,10 +15,7 @@ parser code{:
 
 	public static void laberinto2json(Laberinto laberinto){
         String text ="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n <laberintos> \n";
-        /*for (int i = 0; i< recetas.size()-1; i++){
-            text = text + recetas.get(i).toString() + ", ";
-        }*/
-		
+        		
         text = text + laberinto.toString()+"";
 		text=text+"</laberintos>";
 
@@ -159,7 +156,7 @@ ENEMIGO ::= ident:tp damage:dm {:Elemento elemento = new Elemento(tp, "enemigo",
 BLOQUE ::= llave_a INICIO:ini FINAL:fn LOCALIZACIONES:lc llave_c {:Laberinto laberinto = new Laberinto(((ArrayList<Elemento>)lc), 
 							((Elemento)ini).getCoordenadas().get(0), ((Elemento)fn).getCoordenadas().get(0)); RESULT=laberinto;:}
 			| llave_a INICIO:ini FINAL:fn llave_c {:Laberinto laberinto = new Laberinto(((Elemento)ini).getCoordenadas().get(0), 
-							((Elemento)fn).getCoordenadas().get(0)); RESULT=laberinto;:};
+							((Elemento)fn).getCoordenadas().get(0));RESULT=laberinto;:};
 
 //BLOQUE ::= llave_a INICIO FINAL LOCALIZACIONES llave_c;
 

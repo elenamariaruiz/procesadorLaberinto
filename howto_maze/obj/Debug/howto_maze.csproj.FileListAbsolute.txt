@@ -7,3 +7,10 @@ C:\Users\Asus\Downloads\howto_maze\howto_maze\obj\Debug\howto_maze.csproj.Genera
 C:\Users\Asus\Downloads\howto_maze\howto_maze\obj\Debug\howto_maze.csproj.CoreCompileInputs.cache
 C:\Users\Asus\Downloads\howto_maze\howto_maze\obj\Debug\howto_maze.exe
 C:\Users\Asus\Downloads\howto_maze\howto_maze\obj\Debug\howto_maze.pdb
+C:\Users\Asus\Documents\GIT\howto_maze\howto_maze\obj\Debug\howto_maze.csprojAssemblyReference.cache
+C:\Users\Asus\Documents\GIT\howto_maze\howto_maze\obj\Debug\howto_maze.Form1.resources
+C:\Users\Asus\Documents\GIT\howto_maze\howto_maze\obj\Debug\howto_maze.Properties.Resources.resources
+C:\Users\Asus\Documents\GIT\howto_maze\howto_maze\obj\Debug\howto_maze.csproj.GenerateResource.cache
+C:\Users\Asus\Documents\GIT\howto_maze\howto_maze\obj\Debug\howto_maze.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Documents\GIT\howto_maze\howto_maze\obj\Debug\howto_maze.exe
+C:\Users\Asus\Documents\GIT\howto_maze\howto_maze\obj\Debug\howto_maze.pdb

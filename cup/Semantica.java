@@ -2,19 +2,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
 import java.util.Set;
+
 public class Semantica {
     public static void comprobarLaberinto(Laberinto laberinto) throws ElementoDuplicadoException, CoordenadaNoValidaException, ElementoNoDeclaradoException,
-        CoordenadaRepetidaException{
-        declaracionUnica(laberinto.getDefinicion());
+        CoordenadaRepetidaException, NoHayDefinicionException{
+        if(laberinto.getDefinicion()!=null)  declaracionUnica(laberinto.getDefinicion());
         coordenadaValida("Declaración de inicio: ",laberinto.getDimension(), laberinto.getInicio());
         coordenadaValida("Declaración de meta: ",laberinto.getDimension(), laberinto.getMeta());
         //Comprobar que inicio y meta no están en la misma coordenada
-        comprobarLocalizaciones(laberinto.getInicio(), laberinto.getMeta(), laberinto.getDimension(), laberinto.getDefinicion(), laberinto.getLocalizaciones());
+        if(laberinto.getLocalizaciones()!=null) comprobarLocalizaciones(laberinto.getInicio(), laberinto.getMeta(), laberinto.getDimension(), laberinto.getDefinicion(), laberinto.getLocalizaciones());
     }
     public static void declaracionUnica(ArrayList<Elemento> definicion) throws ElementoDuplicadoException{
        // List<Elemento> duplicates = new ArrayList<Elemento>();
         Set<Elemento> elementoSet = new TreeSet<Elemento>();
-        
         for(Elemento e : definicion)
         {
             if(!elementoSet.add(e))
@@ -27,7 +27,7 @@ public class Semantica {
     }
 
     public static void comprobarLocalizaciones(Coordenada inicio, Coordenada meta,Integer[] dimensionLaberinto, ArrayList<Elemento> definicion,
-     ArrayList<Elemento> localizaciones) throws ElementoNoDeclaradoException, CoordenadaRepetidaException, CoordenadaNoValidaException{
+     ArrayList<Elemento> localizaciones) throws ElementoNoDeclaradoException, CoordenadaRepetidaException, CoordenadaNoValidaException, NoHayDefinicionException{
         int cont=0;
         Set<Coordenada> coordSet = new TreeSet<Coordenada>();
         
@@ -36,6 +36,9 @@ public class Semantica {
           //  throw new CoordenadaRepetidaException(meta);
         //}        
         //Elemento declarado anteriormente(llevar a otro metodo)
+    
+        if( localizaciones!=null && definicion==null)
+            throw new NoHayDefinicionException();
         for(Elemento e : localizaciones){
             for(Elemento m: definicion){
                 if(e.getTipo().equals(m.getTipo())){
@@ -58,6 +61,8 @@ public class Semantica {
                 coordenadaValida(dimensionLaberinto, c);
             }
         }
+    
+        
     }
     public static void coordenadaValida(Integer[] dimensionLaberinto, Coordenada coord) throws CoordenadaNoValidaException{
         coordenadaValida("", dimensionLaberinto, coord);
@@ -67,11 +72,7 @@ public class Semantica {
             throw new CoordenadaNoValidaException(msg, dimensionLaberinto, coord.getCoordX(), coord.getCoordY());
 
     }
- 
-    /*public static localizacionUnica(){}
-    public static elementoConLocalizacion(){}
-    public static coordenadaValida(){}*/
-    
+     
 
 }
 
@@ -86,6 +87,11 @@ class ElementoDuplicadoException extends Exception{
     }
 }
 
+class NoHayDefinicionException extends Exception{
+    public NoHayDefinicionException(){
+        super("No pueden definirse las localizaciones de un elemento si no hay declaraciones de elementos.");
+    }
+}
 class CoordenadaNoValidaException extends Exception{
     public CoordenadaNoValidaException(String msg, Integer[] dimensionLaberinto, Integer x, Integer y){
         super(msg+"Las coordenadas x:"+x+" y:"+y+" exceden los limites del laberinto. Tamaño del laberinto: "+dimensionLaberinto[0]+", "+dimensionLaberinto[1]+".");

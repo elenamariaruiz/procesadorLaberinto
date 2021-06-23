@@ -21,13 +21,13 @@ class Main{
 			   parse_tree = parser_obj.debug_parse();
 			else
 			   parse_tree = parser_obj.parse();
-			System.out.println("Análisis Correcto :D");
+			System.out.println("Analisis CORRECTO");
 		 } catch (Exception e) {
 			//e.printStackTrace();
 			System.out.println(e.getMessage());
-			System.out.println("Análisis INCORRECTO!!");
+			System.out.println("El analisis NO es correcto");
 		 } finally {
-			System.out.println("Fin del Análisis ");
+			System.out.println("Analisis FINALIZADO");
 		 }
 		 
 		/*try{

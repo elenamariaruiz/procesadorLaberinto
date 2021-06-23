@@ -182,10 +182,7 @@ public class parser extends java_cup.runtime.lr_parser {
 
 	public static void laberinto2json(Laberinto laberinto){
         String text ="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n <laberintos> \n";
-        /*for (int i = 0; i< recetas.size()-1; i++){
-            text = text + recetas.get(i).toString() + ", ";
-        }*/
-		
+        		
         text = text + laberinto.toString()+"";
 		text=text+"</laberintos>";
 
@@ -684,7 +681,7 @@ class CUP$parser$actions {
 		int fnright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).right;
 		Object fn = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-1)).value;
 		Laberinto laberinto = new Laberinto(((Elemento)ini).getCoordenadas().get(0), 
-							((Elemento)fn).getCoordenadas().get(0)); RESULT=laberinto;
+							((Elemento)fn).getCoordenadas().get(0));RESULT=laberinto;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("BLOQUE",3, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-3)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;

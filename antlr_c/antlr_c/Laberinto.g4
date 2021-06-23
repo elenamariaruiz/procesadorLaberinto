@@ -4,7 +4,7 @@ import LaberintoLexico;
 
 inicio : IDENT dimension directivas def_monedas? def_enemigos? bloque;
 directivas :USE IDENT TIME NUMERO UTEMP;
-dimension : ALTO? NUMERO ANCHO? NUMERO;
+dimension : ALTO? num1=NUMERO ANCHO? num2=NUMERO;
 
 def_monedas : MONEDAS LLAVE_A monedas LLAVE_C;
 monedas : (moneda PUNTO_COMA)+;
@@ -19,4 +19,4 @@ end : FINAL coord PUNTO_COMA ;
 localizaciones : localizacion (localizacion)* ;
 localizacion : IDENT coordenadas PUNTO_COMA ;
 coordenadas : (coord)+ ;
-coord :PARENTA NUMERO COMA? NUMERO PARENTC;
+coord :PARENTA num1=NUMERO COMA? num2=NUMERO PARENTC;

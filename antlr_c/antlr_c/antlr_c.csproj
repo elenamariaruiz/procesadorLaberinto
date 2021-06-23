@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <TargetFramework>net472</TargetFramework>
 	  <Antlr4UseCSharpGenerator>True</Antlr4UseCSharpGenerator>
+	  <StartupObject>antlr_c.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,6 +24,10 @@
 		  <Visitor>True</Visitor>
 		  <CustomToolNamespace>antlr_c.Generated</CustomToolNamespace>
 	  </Antlr4>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
 
 

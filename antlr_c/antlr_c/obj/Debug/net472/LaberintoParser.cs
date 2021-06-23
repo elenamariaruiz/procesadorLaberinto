@@ -238,6 +238,8 @@ public partial class LaberintoParser : Parser {
 	}
 
 	public partial class DimensionContext : ParserRuleContext {
+		public IToken num1;
+		public IToken num2;
 		public ITerminalNode[] NUMERO() { return GetTokens(LaberintoParser.NUMERO); }
 		public ITerminalNode NUMERO(int i) {
 			return GetToken(LaberintoParser.NUMERO, i);
@@ -281,7 +283,7 @@ public partial class LaberintoParser : Parser {
 				}
 			}
 
-			State = 52; Match(NUMERO);
+			State = 52; _localctx.num1 = Match(NUMERO);
 			State = 54;
 			_errHandler.Sync(this);
 			_la = _input.La(1);
@@ -291,7 +293,7 @@ public partial class LaberintoParser : Parser {
 				}
 			}
 
-			State = 56; Match(NUMERO);
+			State = 56; _localctx.num2 = Match(NUMERO);
 			}
 		}
 		catch (RecognitionException re) {
@@ -966,12 +968,14 @@ public partial class LaberintoParser : Parser {
 	}
 
 	public partial class CoordContext : ParserRuleContext {
+		public IToken num1;
+		public IToken num2;
 		public ITerminalNode PARENTA() { return GetToken(LaberintoParser.PARENTA, 0); }
+		public ITerminalNode PARENTC() { return GetToken(LaberintoParser.PARENTC, 0); }
 		public ITerminalNode[] NUMERO() { return GetTokens(LaberintoParser.NUMERO); }
 		public ITerminalNode NUMERO(int i) {
 			return GetToken(LaberintoParser.NUMERO, i);
 		}
-		public ITerminalNode PARENTC() { return GetToken(LaberintoParser.PARENTC, 0); }
 		public ITerminalNode COMA() { return GetToken(LaberintoParser.COMA, 0); }
 		public CoordContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
@@ -1002,7 +1006,7 @@ public partial class LaberintoParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			State = 120; Match(PARENTA);
-			State = 121; Match(NUMERO);
+			State = 121; _localctx.num1 = Match(NUMERO);
 			State = 123;
 			_errHandler.Sync(this);
 			_la = _input.La(1);
@@ -1012,7 +1016,7 @@ public partial class LaberintoParser : Parser {
 				}
 			}
 
-			State = 125; Match(NUMERO);
+			State = 125; _localctx.num2 = Match(NUMERO);
 			State = 126; Match(PARENTC);
 			}
 		}

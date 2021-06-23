@@ -116,9 +116,15 @@ public class Laberinto {
             "<tiempo>"+this.directiva.getTiempo()+"</tiempo>\n"+
             "<unidadTiempo>"+this.directiva.getUnidad()+"</unidadTiempo>\n"+
             "<dimension><alto>"+this.dimension[0]+"</alto>\n<ancho>"+this.dimension[1]+"</ancho>\n</dimension>\n"+
-            "<inicio>\n\t\t\t"+this.inicio.toString()+"\n</inicio>\n<final>\n\t\t\t"+this.meta.toString()+"\n</final>\n"+
-            "<definiciones>\n"+definicionToString()+"</definiciones>\n"+
-            "<localizaciones>\n"+localizacionesToString()+"</localizaciones>\n";
+            "<inicio>\n\t\t\t"+this.inicio.toString()+"\n</inicio>\n<final>\n\t\t\t"+this.meta.toString()+"\n</final>\n";
+            if(this.definicion!=null){
+                salida+="<definiciones>\n"+definicionToString()+"</definiciones>\n";
+            }            
+
+            if(this.localizaciones!=null){
+                salida+="<localizaciones>\n"+localizacionesToString()+"</localizaciones>\n";
+            }
+            
         
         salida=salida+"</laberinto>\n";        
         return salida;
