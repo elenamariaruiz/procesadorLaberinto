@@ -30,8 +30,18 @@ namespace howto_maze
             // Figure out the drawing geometry.
             //int wid = int.Parse(txtWidth.Text);
             //int hgt = int.Parse(txtHeight.Text);
+            
             int wid = this.laberinto.getDimension()[1];
             int hgt = this.laberinto.getDimension()[0];
+            string time = this.laberinto.getDirectiva().getTiempo().ToString() + this.laberinto.getDirectiva().getUnidad();
+
+
+            this.txtHeight.Text = hgt.ToString();
+            this.txtWidth.Text = wid.ToString();
+            this.label4.Text = time;
+            this.label5.Text = this.laberinto.getDirectiva().getNombreLaberinto();
+
+
 
             CellWid = picMaze.ClientSize.Width / (wid + 2);
             CellHgt = picMaze.ClientSize.Height / (hgt + 2);
@@ -48,6 +58,21 @@ namespace howto_maze
 
             // Display the maze.
             DisplayMaze(nodes);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
 
         // Make the network of MazeNodes.
@@ -139,6 +164,9 @@ namespace howto_maze
         {
             int hgt = nodes.GetUpperBound(0) + 1;
             int wid = nodes.GetUpperBound(1) + 1;
+            this.txtHeight.Text = hgt.ToString();
+            this.txtWidth.Text = wid.ToString();
+            
             //int coordXplayer = _random.Next(0, wid);
             //int coordYplayer = _random.Next(0, hgt);
             int coordXplayer = this.laberinto.getInicio().getCoordX()-1;

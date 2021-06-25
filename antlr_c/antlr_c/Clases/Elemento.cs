@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace antlr_c.Clases
 {
-    public class Elemento
+    public class Elemento : IEquatable<Elemento>
     {
         private String tipo;
         private int valor;
@@ -66,5 +66,9 @@ namespace antlr_c.Clases
             return tipo.CompareTo(tipoC);
         }
 
+        public bool Equals(Elemento other)
+        {
+            return other.getTipo() == this.tipo;
+        }
     }
 }

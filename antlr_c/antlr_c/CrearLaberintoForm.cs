@@ -25,12 +25,14 @@ namespace CrearLaberinto
             InitializeComponent();
         }
 
+       
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (this.comboBox1.GetItemText(this.comboBox1.SelectedItem) == "CUP")
             {
                 //CUP
-                Laberinto laberinto = ReadXML("C:\\Users\\Asus\\Documents\\GIT\\howto_maze\\cup\\Laberinto1.xml");
+                Laberinto laberinto = ReadXML(this.textBox1.Text);
                 //Pasar laberinto al siguiente form
                 
                 
@@ -41,7 +43,7 @@ namespace CrearLaberinto
             }
             else if (this.comboBox1.GetItemText(this.comboBox1.SelectedItem) == "Antlr") {
                 //ANTLR
-                String path = "C:\\Users\\Asus\\Documents\\GIT\\howto_maze\\antlr py\\laberinto.txt";
+                String path = this.textBox1.Text;
                 //StreamReader file = new StreamReader("");
 
                 // mostrarLaberinto(laberinto);
@@ -58,10 +60,10 @@ namespace CrearLaberinto
                 Antlr4.Runtime.Tree.IParseTree tree = laberintoParser.inicio();
                 //visitor.Visit(tree);
 
-                //Mylistener listener = new Mylistener();
+                MiLaberintoListener listener = new MiLaberintoListener();
 
                 ParseTreeWalker walker = new ParseTreeWalker();
-                //walker.Walk(listener, tree);
+                walker.Walk(listener, tree);
 
                 var cleanedFormula = string.Empty;
                 var tokenList = commonTokenStream.GetTokens();
@@ -189,8 +191,8 @@ namespace CrearLaberinto
                             //Console.WriteLine($"Coordenada y: {reader.ReadElementContentAsString()}");
 
                         } while (reader.ReadToFollowing("localizacion"));
-                        List<Elemento> listaEleLoc = unificarListaLoc(listaLoc, listaLocCoord);
-                        addElementoALoc(listaDef, listaEleLoc);
+                        List<Elemento> listaEleLoc = Util.unificarListaLoc(listaLoc, listaLocCoord);
+                        Util.addElementoALoc(listaDef, listaEleLoc);
                         laberinto.setLocalizaciones(listaEleLoc);
                     }
 
@@ -204,50 +206,7 @@ namespace CrearLaberinto
         }
 
 
-        public static List<Elemento> unificarListaLoc(List<String> listaIdent, List<Coordenada> listaCoord)
-        {
-            List<Elemento> localizaciones = new List<Elemento>();
-            List<Coordenada> listaCoordenadas = new List<Coordenada>();
-            int index = 0;
-            int i;
-
-            for (i = 0; i < listaIdent.Count; i++)
-            {
-
-
-                if (!listaIdent.ElementAt(index).Equals(listaIdent.ElementAt(i)))
-                {
-                    localizaciones.Add(new Elemento(listaIdent.ElementAt(index), listaCoordenadas));
-                    listaCoordenadas = new List<Coordenada>();
-                    index = i;
-
-                }
-                listaCoordenadas.Add(listaCoord.ElementAt(i));
-
-            }
-            if (listaCoordenadas != null)
-            {
-                localizaciones.Add(new Elemento(listaIdent.ElementAt(i - 1), listaCoordenadas));
-            }
-
-            return localizaciones;
-
-        }
-
-        public static void addElementoALoc( List<Elemento> definiciones, List<Elemento> localizaciones){
-            for (int i = 0; i < localizaciones.Count; i++) {
-                for (int j = 0; j < definiciones.Count; j++) {
-                    String aux = localizaciones.ElementAt(i).getTipo();
-                    String aux2 = definiciones.ElementAt(j).getTipo();
-                    if (localizaciones.ElementAt(i).getTipo().Equals(definiciones.ElementAt(j).getTipo())){
-                        localizaciones.ElementAt(i).setElemento(definiciones.ElementAt(j).getElemento());
-                        j = definiciones.Count;
-                        
-                    }
-                }
-                
-            }
-        }
+        
 
     }
 }

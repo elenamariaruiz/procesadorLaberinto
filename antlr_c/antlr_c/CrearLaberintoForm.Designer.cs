@@ -59,6 +59,7 @@ namespace CrearLaberinto
             // 
             // comboBox1
             // 
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "CUP",
@@ -68,7 +69,9 @@ namespace CrearLaberinto
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(157, 24);
             this.comboBox1.TabIndex = 2;
-            this.comboBox1.SelectedIndex = 0;
+            this.comboBox1.Text = "CUP";
+            this.comboBox1.UseWaitCursor = true;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // label2
             // 
@@ -86,7 +89,7 @@ namespace CrearLaberinto
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(325, 22);
             this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "C:\\Users\\Asus\\Documents\\GIT\\howto_maze\\antlr py\\laberinto.txt";
+            this.textBox1.Text = "C:\\Users\\Asus\\Documents\\GIT\\howto_maze\\cup\\laberinto.txt";
             // 
             // CrearLaberintoForm
             // 

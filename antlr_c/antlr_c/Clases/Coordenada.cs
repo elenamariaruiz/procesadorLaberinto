@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace antlr_c.Clases
 {
-    public class Coordenada
+    public class Coordenada : IEquatable<Coordenada>
     {
 		private int x;
 		private int y;
@@ -31,8 +31,12 @@ namespace antlr_c.Clases
 			this.y = y;
 		}
 
+        public bool Equals(Coordenada other)
+        {
+			return (this.x == other.getCoordX() && this.y == other.getCoordY());
+        }
 
-		public Coordenada(int x, int y)
+        public Coordenada(int x, int y)
 		{
 
 			this.x = x;

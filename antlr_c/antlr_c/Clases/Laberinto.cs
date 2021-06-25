@@ -66,6 +66,10 @@ namespace antlr_c.Clases
             return this.directiva;
         }
 
+        public List<Elemento> getDefinicion() {
+            return this.definiciones;
+        }
+
         public void setNombre(String nombre) {
             this.nombre = nombre;
         }
