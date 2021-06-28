@@ -1,8 +1,8 @@
 # Lenguaje Generación de Laberintos
 Trabajo Procesadores del Lenguaje 2020/2021
 
-##Ejecución CUP
-###Requisitos
+## Ejecución CUP
+### Requisitos
 Para poder ejecutar el procesador de lenguajes, es necesario tener instalado tanto Java 1.8 como los archivos .jar de JFlex y CUP en el sistema.
 
 ## Ejecución
@@ -30,10 +30,10 @@ O:
 El archivo XML de salida quedará guardado en pl_cup
 
 
-##Ejecución ANTLR
+## Ejecución ANTLR
 El procesador implementado con ANTLR está dentro de la aplicación, por lo que no es necesario realizar ningún paso extra.
 
-##Ejecución de la aplicación:
+## Ejecución de la aplicación:
 
 El archivo .exe que ejecuta la aplicación se encuentra en pl_antlr\antlr_c\bin\Debug\net472\
 
