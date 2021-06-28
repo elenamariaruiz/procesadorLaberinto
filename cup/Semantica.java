@@ -52,9 +52,7 @@ public class Semantica {
         }
         //Comprobar que las coordenadas son únicas y válidas
         for(Elemento e:localizaciones){
-            System.out.println(e.getCoordenadas());
             for(Coordenada c: e.getCoordenadas()){
-                System.out.println(c.getCoordX()+", "+c.getCoordY());
                 if(!coordSet.add(c)){
                     throw new CoordenadaRepetidaException(c);
                 }

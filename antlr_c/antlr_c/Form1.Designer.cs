@@ -93,7 +93,7 @@ namespace howto_maze
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(100, 28);
             this.btnCreate.TabIndex = 4;
-            this.btnCreate.Text = "Create";
+            this.btnCreate.Text = "Crear";
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
@@ -144,9 +144,9 @@ namespace howto_maze
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(145, 47);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 17);
+            this.label6.Size = new System.Drawing.Size(40, 17);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Tipo Laberinto:";
+            this.label6.Text = "Vida:";
             // 
             // Form1
             // 

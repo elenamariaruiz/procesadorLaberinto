@@ -7,7 +7,7 @@ lexer grammar LaberintoLexico;
 OTROS_CARACTERES : GUION | '_';
 TILDES : 'á' | 'é' | 'í' | 'ó' | 'ú' | 'Á' | 'É' | 'Í' | 'Ó' | 'Ú';
 
-USE : 'use';
+VIDA : 'vida';
 TIME:'time';
 ALTO : 'alto';
 ANCHO : 'ancho';

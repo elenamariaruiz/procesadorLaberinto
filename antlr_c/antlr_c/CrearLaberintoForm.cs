@@ -29,59 +29,41 @@ namespace CrearLaberinto
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (this.comboBox1.GetItemText(this.comboBox1.SelectedItem) == "CUP")
+            try
             {
-                //CUP
-                Laberinto laberinto = ReadXML(this.textBox1.Text);
-                //Pasar laberinto al siguiente form
-                
-                
-                var m = new Form1();
-                m.LoadLaberinto(laberinto);
-                //Mirar como carga el laberinto y procesar la información del objeto para mostrarla
-                m.Show();
-            }
-            else if (this.comboBox1.GetItemText(this.comboBox1.SelectedItem) == "Antlr") {
-                //ANTLR
-                String path = this.textBox1.Text;
-                //StreamReader file = new StreamReader("");
-
-                // mostrarLaberinto(laberinto);
-                System.Diagnostics.Debug.WriteLine(File.ReadAllText(path));
-                //Console.WriteLine(File.ReadAllText(path));
-                AntlrInputStream inputStream = new AntlrInputStream(File.ReadAllText(path));
-                LaberintoLexer laberintoLexer = new LaberintoLexer(inputStream);
-                CommonTokenStream commonTokenStream = new CommonTokenStream(laberintoLexer);
-                LaberintoParser laberintoParser = new LaberintoParser(commonTokenStream);
-                laberintoParser.RemoveErrorListeners();
-                laberintoParser.AddErrorListener(new MyErrorListener());
-                //LaberintoParser.ChatContext chatContext = LaberintoParser.chat();
-                //MiLaberintoVisitor visitor = new MiLaberintoVisitor();
-                Antlr4.Runtime.Tree.IParseTree tree = laberintoParser.inicio();
-                //visitor.Visit(tree);
-
-                MiLaberintoListener listener = new MiLaberintoListener();
-
-                ParseTreeWalker walker = new ParseTreeWalker();
-                walker.Walk(listener, tree);
-
-                var cleanedFormula = string.Empty;
-                var tokenList = commonTokenStream.GetTokens();
-
-                for (var i = 0; i < tokenList.Count - 1; i++)
+                if (this.comboBox1.GetItemText(this.comboBox1.SelectedItem) == "CUP")
                 {
-                    cleanedFormula += tokenList[i].Text;
+                    //CUP
+                    if (this.textBox1.Text.EndsWith(".xml"))
+                    {
+                        Laberinto laberinto = ReadXML(this.textBox1.Text);
+                        var m = new Form1();
+                        m.LoadLaberinto(laberinto);
+                        //Mirar como carga el laberinto y procesar la información del objeto para mostrarla
+                        m.Show();
+                    }
+                    else
+                    {
+                        throw new FormatException("CUP requiere de un archivo XML para ejecutarse");
+                    }
                 }
-                System.Diagnostics.Debug.WriteLine(cleanedFormula);
-                //Antlr4.Runtime.Tree.IParseTree parseTree = laberintoParser.inicio();
-                //Console.WriteLine();
-
-                //visitor.Visit(chatContext);
-
-                /*foreach (var line in visitor.VisitBloque)
+                else if (this.comboBox1.GetItemText(this.comboBox1.SelectedItem) == "Antlr")
                 {
-                    Console.WriteLine("{0} has said {1}", line.Person, line.Text);
-                }*/
+                    if (this.textBox1.Text.EndsWith(".txt"))
+                    {
+                        generacionANTLR(this.textBox1.Text);
+                    }
+                    else
+                    {
+                        throw new FormatException("ANTLR requiere de un archivo TXT para ejecutarse");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex, "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Diagnostics.Debug.WriteLine("Error: " + ex);
             }
 
 
@@ -93,6 +75,30 @@ namespace CrearLaberinto
 
         }
 
+
+        public static void generacionANTLR(String path) {
+            //ANTLR
+            //StreamReader file = new StreamReader("");
+
+            // mostrarLaberinto(laberinto);
+            System.Diagnostics.Debug.WriteLine(File.ReadAllText(path));
+            //Console.WriteLine(File.ReadAllText(path));
+            AntlrInputStream inputStream = new AntlrInputStream(File.ReadAllText(path));
+            LaberintoLexer laberintoLexer = new LaberintoLexer(inputStream);
+            CommonTokenStream commonTokenStream = new CommonTokenStream(laberintoLexer);
+            LaberintoParser laberintoParser = new LaberintoParser(commonTokenStream);
+            laberintoParser.RemoveErrorListeners();
+            laberintoParser.AddErrorListener(new MyErrorListener());
+            //LaberintoParser.ChatContext chatContext = LaberintoParser.chat();
+            //MiLaberintoVisitor visitor = new MiLaberintoVisitor();
+            Antlr4.Runtime.Tree.IParseTree tree = laberintoParser.inicio();
+            //visitor.Visit(tree);
+
+            MiLaberintoListener listener = new MiLaberintoListener();
+
+            ParseTreeWalker walker = new ParseTreeWalker();
+            walker.Walk(listener, tree);
+        }
 
         public static Laberinto ReadXML(string path)
         {
@@ -109,10 +115,10 @@ namespace CrearLaberinto
 
                 reader.ReadToFollowing("nombre"); String nombre = reader.ReadElementContentAsString();
 
-                reader.ReadToFollowing("use"); String use = reader.ReadElementContentAsString();
+                reader.ReadToFollowing("vida"); int vida = reader.ReadElementContentAsInt();
                 reader.ReadToFollowing("tiempo"); int tiempo = reader.ReadElementContentAsInt();
                 reader.ReadToFollowing("unidadTiempo"); char unidad = reader.ReadElementContentAsString()[0];
-                Directiva directiva = new Directiva(use, tiempo, unidad);
+                Directiva directiva = new Directiva(vida, tiempo, unidad);
 
                 reader.ReadToFollowing("dimension");
                 reader.ReadToFollowing("alto"); int alto = reader.ReadElementContentAsInt();
@@ -192,8 +198,11 @@ namespace CrearLaberinto
 
                         } while (reader.ReadToFollowing("localizacion"));
                         List<Elemento> listaEleLoc = Util.unificarListaLoc(listaLoc, listaLocCoord);
-                        Util.addElementoALoc(listaDef, listaEleLoc);
-                        laberinto.setLocalizaciones(listaEleLoc);
+                        if (listaEleLoc != null) {
+                            Util.addElementoALoc(listaDef, listaEleLoc);
+                            laberinto.setLocalizaciones(listaEleLoc);
+                        }
+                        
                     }
 
                 }

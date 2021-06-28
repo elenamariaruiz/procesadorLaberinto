@@ -1,0 +1,6 @@
+Laberinto1
+alto 7 ancho 7
+vida 2000 time 200 s
+{ inicio (2, 1);
+final (1,  6);
+}

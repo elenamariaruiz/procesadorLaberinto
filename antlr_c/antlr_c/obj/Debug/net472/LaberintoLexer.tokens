@@ -1,6 +1,6 @@
 ﻿OTROS_CARACTERES=1
 TILDES=2
-USE=3
+VIDA=3
 TIME=4
 ALTO=5
 ANCHO=6
@@ -20,7 +20,7 @@ NUMERO=19
 UTEMP=20
 IDENT=21
 WS=22
-'use'=3
+'vida'=3
 'time'=4
 'alto'=5
 'ancho'=6

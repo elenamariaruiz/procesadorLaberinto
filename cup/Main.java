@@ -30,12 +30,5 @@ class Main{
 			System.out.println("Analisis FINALIZADO");
 		 }
 		 
-		/*try{
-			if(do_debug_parse)
-				parse_tree=parser_obj.debug_parse();
-			else
-				parse_tree=parser_obj.parse();
-		}catch(Exception e) {System.out.println(" Analisis INCORRECTO !!");}
-	 	finally{System.out.println(" Analisis Sintactico CORRECTO !!");}	*/
 }
 }

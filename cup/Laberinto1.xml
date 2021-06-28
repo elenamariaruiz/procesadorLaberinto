@@ -2,7 +2,7 @@
  <laberintos> 
 <laberinto>
 <nombre>Laberinto1</nombre>
-<use>LAB1</use>
+<vida>2000</vida>
 <tiempo>200</tiempo>
 <unidadTiempo>s</unidadTiempo>
 <dimension><alto>7</alto>
@@ -65,8 +65,8 @@
  	<localizacion>
 		<ident>enemigo1</ident>
 		<coordenada>
-			<x> 1</x>
-			<y>5</y>
+			<x> 3</x>
+			<y>1</y>
 		</coordenada>
 	</localizacion>
  	<localizacion>

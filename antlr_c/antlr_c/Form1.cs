@@ -39,7 +39,7 @@ namespace howto_maze
             this.txtHeight.Text = hgt.ToString();
             this.txtWidth.Text = wid.ToString();
             this.label4.Text = time;
-            this.label5.Text = this.laberinto.getDirectiva().getNombreLaberinto();
+            this.label5.Text = this.laberinto.getDirectiva().getVida().ToString();
 
 
 
@@ -193,7 +193,7 @@ namespace howto_maze
                     {
                         
                         if (r == coordYplayer && c == coordXplayer) {
-                            nodes[r, c].DrawCenter(gr, Brushes.Black);
+                            nodes[r, c].DrawCenter(gr, Brushes.Blue);
                         }
                         if (r == coordYexit && c == coordXexit)
                         {
@@ -221,7 +221,7 @@ namespace howto_maze
                                 nodes[coordenadas.ElementAt(j).getCoordY()-1, coordenadas.ElementAt(j).getCoordX()-1].DrawCenter(gr, Brushes.Yellow);
                             }
                             else if (localizaciones.ElementAt(i).getElemento() == "enemigo") {
-                                nodes[coordenadas.ElementAt(j).getCoordY()-1, coordenadas.ElementAt(j).getCoordX()-1].DrawCenter(gr, Brushes.Blue);
+                                nodes[coordenadas.ElementAt(j).getCoordY()-1, coordenadas.ElementAt(j).getCoordX()-1].DrawCenter(gr, Brushes.Red);
                             }
                         } 
                     }

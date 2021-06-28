@@ -42,9 +42,9 @@ namespace CrearLaberinto
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(44, 67);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 17);
+            this.label1.Size = new System.Drawing.Size(113, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Elige compilador:";
+            this.label1.Text = "Elige analizador:";
             // 
             // button1
             // 
@@ -60,6 +60,7 @@ namespace CrearLaberinto
             // comboBox1
             // 
             this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "CUP",
@@ -69,9 +70,7 @@ namespace CrearLaberinto
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(157, 24);
             this.comboBox1.TabIndex = 2;
-            this.comboBox1.Text = "CUP";
             this.comboBox1.UseWaitCursor = true;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // label2
             // 
@@ -89,7 +88,7 @@ namespace CrearLaberinto
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(325, 22);
             this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "C:\\Users\\Asus\\Documents\\GIT\\howto_maze\\cup\\laberinto.txt";
+            this.textBox1.Text = "C:\\Users\\Asus\\Documents\\GIT\\howto_maze\\test\\laberinto.txt";
             // 
             // CrearLaberintoForm
             // 

@@ -20,8 +20,8 @@ public class sym {
   public static final int inicio = 10;
   public static final int ident = 4;
   public static final int EOF = 0;
+  public static final int vida = 6;
   public static final int error = 1;
-  public static final int use = 6;
   public static final int damage = 3;
   public static final int monedas = 12;
   public static final int enemigos = 5;
@@ -33,7 +33,7 @@ public class sym {
   "damage",
   "ident",
   "enemigos",
-  "use",
+  "vida",
   "time",
   "alto",
   "ancho",

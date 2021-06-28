@@ -74,8 +74,8 @@ end= "final"
 ";"		{System.out.println("Token punto_coma encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
   return symbol(sym.punto_coma);}
 
-"use"		{System.out.println("Token use encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
-  return symbol(sym.use);}
+"vida"		{System.out.println("Token use encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
+  return symbol(sym.vida);}
 
 "time"		{System.out.println("Token time encontrado en linea: " + (yyline+1) + " columna: " + (yycolumn+1)); 
   return symbol(sym.time);}

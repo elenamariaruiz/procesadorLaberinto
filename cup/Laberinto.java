@@ -112,7 +112,7 @@ public class Laberinto {
     public String toString(){
         
         String salida="<laberinto>\n<nombre>"+this.nombre+"</nombre>\n";
-        salida = salida+"<use>"+this.directiva.getNombreLaberinto()+"</use>\n"+
+        salida = salida+"<vida>"+this.directiva.getVida()+"</vida>\n"+
             "<tiempo>"+this.directiva.getTiempo()+"</tiempo>\n"+
             "<unidadTiempo>"+this.directiva.getUnidad()+"</unidadTiempo>\n"+
             "<dimension><alto>"+this.dimension[0]+"</alto>\n<ancho>"+this.dimension[1]+"</ancho>\n</dimension>\n"+

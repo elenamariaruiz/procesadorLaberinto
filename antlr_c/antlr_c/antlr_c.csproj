@@ -5,6 +5,7 @@
     <TargetFramework>net472</TargetFramework>
 	  <Antlr4UseCSharpGenerator>True</Antlr4UseCSharpGenerator>
 	  <StartupObject>antlr_c.Program</StartupObject>
+	  <ApplicationIcon>howto_maze.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

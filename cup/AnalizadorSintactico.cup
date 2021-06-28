@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 parser code{:
 
 
-	public static void laberinto2json(Laberinto laberinto){
+	public static void laberinto2xml(Laberinto laberinto){
         String text ="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n <laberintos> \n";
         		
         text = text + laberinto.toString()+"";
@@ -69,7 +69,7 @@ parser code{:
 
 
 terminal Integer numero, damage;
-terminal String ident, enemigos, use, time, alto, ancho, inicio, end, 
+terminal String ident, enemigos, vida, time, alto, ancho, inicio, end, 
 monedas, utemp;
 terminal llave_a, llave_c, coma, punto_coma, parenta, parentc;
 
@@ -90,7 +90,7 @@ S ::= ident:id DIMENSION:dm DIRECTIVAS:dr DEF_MONEDAS:mn BLOQUE:bq {:Laberinto l
 														laberinto.setDimension((Integer[])dm); 
 														laberinto.setDefinicion(((ArrayList<Elemento>)mn));
 														Semantica.comprobarLaberinto(laberinto);
-														laberinto2json(laberinto);
+														laberinto2xml(laberinto);
 														RESULT=laberinto;
 														:}
 
@@ -100,7 +100,7 @@ S ::= ident:id DIMENSION:dm DIRECTIVAS:dr DEF_MONEDAS:mn BLOQUE:bq {:Laberinto l
 														laberinto.setDimension((Integer[])dm); 
 														laberinto.setDefinicion(((ArrayList<Elemento>)en));
 														Semantica.comprobarLaberinto(laberinto);
-														laberinto2json(laberinto);
+														laberinto2xml(laberinto);
 														RESULT=laberinto;
 														:}
 	| ident:id DIMENSION:dm DIRECTIVAS:dr DEF_MONEDAS:mn DEF_ENEMIGOS:en BLOQUE:bq {:Laberinto laberinto = ((Laberinto)bq); 
@@ -112,7 +112,7 @@ S ::= ident:id DIMENSION:dm DIRECTIVAS:dr DEF_MONEDAS:mn BLOQUE:bq {:Laberinto l
 														definicion.addAll(definicion2);
 														laberinto.setDefinicion(definicion);
 														Semantica.comprobarLaberinto(laberinto);
-														laberinto2json(laberinto);
+														laberinto2xml(laberinto);
 														RESULT=laberinto;
 														:}
 	| ident:id DIMENSION:dm DIRECTIVAS:dr BLOQUE:bq	{:Laberinto laberinto = ((Laberinto)bq); 
@@ -120,15 +120,15 @@ S ::= ident:id DIMENSION:dm DIRECTIVAS:dr DEF_MONEDAS:mn BLOQUE:bq {:Laberinto l
 														laberinto.setDirectiva((Directiva)dr);														
 														laberinto.setDimension((Integer[])dm);
 														Semantica.comprobarLaberinto(laberinto);
-														laberinto2json(laberinto);
+														laberinto2xml(laberinto);
 														RESULT=laberinto;:} ;
 
-DIRECTIVAS ::= use ident:nL time numero:nm utemp:un {:Directiva directiva = new Directiva(nL, nm, un.charAt(0)); RESULT=directiva;:}
-			| use ident:nL time numero:nm {:report_syntax_error(String.valueOf(nm), nmleft, nmright, "Falta la unidad de tiempo. Por defecto se entiende que son segundos", false);
+DIRECTIVAS ::= vida numero:nL time numero:nm utemp:un {:Directiva directiva = new Directiva(nL, nm, un.charAt(0)); RESULT=directiva;:}
+			| vida numero:nL time numero:nm {:report_syntax_error(String.valueOf(nm), nmleft, nmright, "Falta la unidad de tiempo. Por defecto se entiende que son segundos", false);
 							Directiva directiva = new Directiva(nL, nm, 's'); RESULT=directiva;:}
-			| use ident:nL numero:nm utemp{:report_syntax_error(String.valueOf(nm), nmleft, nmright, "Falta la palabra time", true);:}
-			| ident:nL time numero:nm utemp{:report_syntax_error(String.valueOf(nL), nLleft, nLright, "Falta la palabra use", true);:}
-			| ident:nL numero:nm utemp{:report_syntax_error(String.valueOf(nL), nLleft, nLright, "Falta la palabra use", true);:};
+			| vida numero:nL numero:nm utemp{:report_syntax_error(String.valueOf(nm), nmleft, nmright, "Falta la palabra time", true);:}
+			| numero:nL time numero:nm utemp{:report_syntax_error(String.valueOf(nL), nLleft, nLright, "Falta la palabra vida", true);:}
+			| numero:nL numero:nm utemp{:report_syntax_error(String.valueOf(nL), nLleft, nLright, "Falta la palabra vida", true);:};
 
 DIMENSION ::= alto numero:n1 ancho numero:n2 {:Integer [] dimension = {n1, n2}; RESULT=dimension;:}
 			| numero:n1 numero:n2 {:Integer [] dimension = {n1, n2}; RESULT=dimension;:};
@@ -158,13 +158,10 @@ BLOQUE ::= llave_a INICIO:ini FINAL:fn LOCALIZACIONES:lc llave_c {:Laberinto lab
 			| llave_a INICIO:ini FINAL:fn llave_c {:Laberinto laberinto = new Laberinto(((Elemento)ini).getCoordenadas().get(0), 
 							((Elemento)fn).getCoordenadas().get(0));RESULT=laberinto;:};
 
-//BLOQUE ::= llave_a INICIO FINAL LOCALIZACIONES llave_c;
 
-//INICIO ::= inicio COORD:ca punto_coma;
 INICIO ::= inicio COORD:cds punto_coma {:ArrayList<Coordenada> loc = new ArrayList<Coordenada>(); loc.add(((Coordenada)cds));
 							Elemento elemento = new Elemento("inicio", loc); RESULT=elemento; :};
 
-//FINAL ::= final COORD:ca punto_coma
 FINAL ::= end COORD:cds punto_coma {:ArrayList<Coordenada> loc = new ArrayList<Coordenada>(); loc.add(((Coordenada)cds));
 							Elemento elemento = new Elemento("final", loc); RESULT=elemento; :};
 
@@ -179,12 +176,6 @@ COORDENADAS ::= COORD:cd {:ArrayList<Coordenada> lista = new ArrayList<Coordenad
 							lista.add((Coordenada)cd) ; RESULT=lista;:}
 			| COORD:cd COORDENADAS:lc {:((ArrayList<Coordenada>)lc).add(0, (Coordenada)cd); RESULT=lc;:};
 
-/*LOCALIZACION ::=  ident COORD punto_coma {:System.out.println("Loc leida");:};
-
-LOC_ENEMIGOS ::= LOC_ENEMIGO punto_coma
-	| LOC_ENEMIGO punto_coma LOC_ENEMIGOS;
-
-LOC_ENEMIGO ::= enemigo ident COORD punto_coma;*/
 
 COORD ::= parenta numero:nx coma numero:ny parentc {: RESULT =new Coordenada(nx, ny);:}
 		| parenta numero:nx numero:ny parentc {:report_syntax_error(String.valueOf(ny), nyleft, nyright, "Falta una coma entre los valores "+nx+" y "+ny+" de la coordenada", false);

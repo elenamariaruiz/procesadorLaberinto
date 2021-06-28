@@ -25,7 +25,8 @@ namespace antlr_c
 		public void ExitInicio(LaberintoParser.InicioContext context)
 		{
 			comprobarSemantica();
-			Util.addElementoALoc(laberinto.getDefinicion(), laberinto.getLocalizaciones());
+			if(laberinto.getLocalizaciones()!=null)
+				Util.addElementoALoc(laberinto.getDefinicion(), laberinto.getLocalizaciones());
 			//laberinto.setLocalizaciones(listaEleLoc);
 
 			//Pasar laberinto al form
@@ -53,7 +54,7 @@ namespace antlr_c
 		
 		override
 		public void EnterDirectivas(LaberintoParser.DirectivasContext context) {
-			laberinto.setDirectiva(new Directiva(context.IDENT().GetText(), Int32.Parse(context.NUMERO().GetText()), context.UTEMP().GetText()[0]));
+			laberinto.setDirectiva(new Directiva(Int32.Parse(context.num1.Text), Int32.Parse(context.num2.Text), context.UTEMP().GetText()[0]));
 		}
 		override
 		public void EnterDef_monedas(LaberintoParser.Def_monedasContext context) {

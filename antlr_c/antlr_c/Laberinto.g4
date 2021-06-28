@@ -3,7 +3,7 @@ grammar Laberinto;
 import LaberintoLexico;
 
 inicio : IDENT dimension directivas def_monedas? def_enemigos? bloque;
-directivas :USE IDENT TIME NUMERO UTEMP;
+directivas :VIDA num1=NUMERO TIME num2=NUMERO UTEMP;
 dimension : ALTO? num1=NUMERO ANCHO? num2=NUMERO;
 
 def_monedas : MONEDAS LLAVE_A monedas LLAVE_C;

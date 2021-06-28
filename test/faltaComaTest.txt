@@ -1,0 +1,12 @@
+LaberintoFaltaComa
+alto 7 ancho 7
+vida 2000 time 200 s
+monedas {moneda1 15; moneda2 10;}
+enemigos {enemigo1 -10; enemigo2 -50;}
+{ inicio (2 1);
+final (1,  6);
+moneda1 (2, 3) (1, 1);
+moneda2 (1, 2);
+enemigo1 (3, 1) (5, 1);
+enemigo2 (4, 2);
+}

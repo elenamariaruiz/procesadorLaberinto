@@ -8,20 +8,20 @@ namespace antlr_c.Clases
 {
     public class Directiva
     {
-        private String nombreLaberinto;
+        private int vida;
         private int tiempo;
         private char unidad;
 
-        public Directiva(String nombreLaberinto, int tiempo, char unidad)
+        public Directiva(int vida, int tiempo, char unidad)
         {
-            this.nombreLaberinto = nombreLaberinto;
+            this.vida = vida;
             this.tiempo = tiempo;
             this.unidad = unidad;
         }
 
-        public String getNombreLaberinto()
+        public int getVida()
         {
-            return this.nombreLaberinto;
+            return this.vida;
         }
 
         public int getTiempo()

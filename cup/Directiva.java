@@ -1,16 +1,16 @@
 public class Directiva {
-    private String nombreLaberinto;
+    private Integer vida;
     private Integer tiempo;
     private char unidad;
 
-    public Directiva(String nombreLaberinto, Integer tiempo, char unidad){
-        this.nombreLaberinto=nombreLaberinto;
+    public Directiva(Integer vida, Integer tiempo, char unidad){
+        this.vida=vida;
         this.tiempo=tiempo;
         this.unidad=unidad;
     }
 
-    public String getNombreLaberinto(){
-        return this.nombreLaberinto;
+    public Integer getVida(){
+        return this.vida;
     }
 
     public Integer getTiempo(){
