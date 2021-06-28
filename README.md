@@ -3,9 +3,10 @@ Trabajo Procesadores del Lenguaje 2020/2021
 
 ## Ejecución CUP
 ### Requisitos
-Para poder ejecutar el procesador de lenguajes, es necesario tener instalado tanto Java 1.8 como los archivos .jar de JFlex y CUP en el sistema.
+* Java 1.8
+* JFlex y CUP
 
-## Ejecución
+### Ejecución
 
 Comando para generar el analizador léxico:
 
