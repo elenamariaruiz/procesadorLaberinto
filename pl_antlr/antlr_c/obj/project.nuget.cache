@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "i+eCUx1/BlsS2EOqKRXZn8Srv722EBqRBrY8Lsg50ZfBmey8HvnHbW8LAHR3O5hVKIFKxXwDXIa7PFKm3wWLTg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Asus\\Documents\\GIT\\howto_maze\\pl_antlr\\antlr_c\\pl_antlr.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Asus\\.nuget\\packages\\antlr4\\4.6.6\\antlr4.4.6.6.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\antlr4.codegenerator\\4.6.6\\antlr4.codegenerator.4.6.6.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\antlr4.runtime\\4.6.6\\antlr4.runtime.4.6.6.nupkg.sha512"
+  ],
+  "logs": []
+}

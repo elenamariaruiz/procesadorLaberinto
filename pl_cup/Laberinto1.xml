@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <laberintos> 
+<laberinto>
+<nombre>Laberinto1</nombre>
+<vida>2000</vida>
+<tiempo>200</tiempo>
+<unidadTiempo>s</unidadTiempo>
+<dimension><alto>7</alto>
+<ancho>7</ancho>
+</dimension>
+<inicio>
+			<x> 2</x>
+			<y>1</y>
+
+</inicio>
+<final>
+			<x> 1</x>
+			<y>6</y>
+
+</final>
+</laberinto>
+</laberintos>
